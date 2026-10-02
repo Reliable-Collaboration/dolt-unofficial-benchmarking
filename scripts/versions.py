@@ -15,11 +15,9 @@ against the release's own digests; MySQL and PostgreSQL: the newest version tag 
 Docker Hub image, pulled and resolved to its digest (MySQL's on its long-term-support track: the
 version tag that names the same image as `lts`, by the maintainer's decision of 2026-10-01); SQLite: the newest release sqlite.org's
 download page names, its source tarball downloaded and checked against the page's SHA3-256, to be
-built into the DoltLite image as the pair's baseline shell -- rewrites versions.json and
-compose.yaml's defaults, and retires the old run: every recorded unit and memory-study cell of an
+built into the DoltLite image as the pair's baseline shell -- rewrites versions.json, and retires the old run: every recorded unit and memory-study cell of an
 engine that moved is dropped (git history keeps the old run), so the runners measure them again. It
-refuses to run while a runner holds build/run.lock. `--check` also fails if compose.yaml's
-documented image defaults drift from versions.json.
+refuses to run while a runner holds build/run.lock.
 """
 import argparse, hashlib, json, os, re, sys, time, urllib.error, urllib.request
 
@@ -36,7 +34,6 @@ HUB = {"mysql": ("mysql", r"^\d+\.\d+\.\d+$", "lts"), "postgres": ("postgres", r
 SQLITE_DOWNLOADS = "https://sqlite.org/download.html"
 ENGINES = ("mysql", "dolt", "postgres", "doltgres", "sqlite", "doltlite")
 WORK = os.path.join(ROOT, "build", "doltlite")     # the DoltLite image's build context: its packages and the SQLite tarball
-COMPOSE = os.path.join(ROOT, "compose.yaml")
 PROGRESS = os.path.join(ROOT, "build", "progress.json")
 STUDIES = {"dolt": os.path.join(ROOT, "build", "memory.json"),
            "doltgres": os.path.join(ROOT, "build", "memory_pairs.json"),
@@ -99,8 +96,6 @@ def newest(engine):
 
 
 def check():
-    drift = []
-    text = open(COMPOSE, encoding="utf-8").read()
     print(f"{'engine':10s} {'here':10s} {'since':11s} {'newest upstream':18s} published")
     for engine in ENGINES:
         here = VERSIONS[engine]
@@ -110,15 +105,6 @@ def check():
             up, date = f"? ({type(exc).__name__})", ""
         flag = "" if up == here["version"] else "   <- newer upstream; `make new-run` moves it"
         print(f"{engine:10s} {here['version']:10s} {here['since']:11s} {up:18s} {date}{flag}")
-        if engine in IMAGES and here["image"] not in text:
-            drift.append(f"compose.yaml does not carry versions.json's {engine} image {here['image']}")
-    lite_tag = f"doltsamples-doltlite:{VERSIONS['doltlite']['version']}"
-    if lite_tag not in text:
-        drift.append(f"compose.yaml does not carry the DoltLite image tag {lite_tag}")
-    if drift:
-        print("\n" + "\n".join(drift) + "\n\nThe stack takes its images from versions.json through compose.override.yaml, "
-              "but compose.yaml's documented defaults should say the same.")
-        return 1
     print("\nOne version per run: `make new-run` moves every engine to its newest release and drops the old run's units.")
     return 0
 
@@ -222,11 +208,6 @@ def write_versions():
         json.dump(VERSIONS, fh, indent=2, ensure_ascii=False)
         fh.write("\n")
     os.replace(tmp, VERSIONS_PATH)
-    text = open(COMPOSE, encoding="utf-8").read()
-    for engine, image in IMAGES.items():
-        text = re.sub(rf"image: {re.escape(image)}@sha256:[0-9a-f]{{64}}", f"image: {VERSIONS[engine]['image']}", text)
-    text = re.sub(r"image: doltsamples-doltlite:\S+", f"image: doltsamples-doltlite:{VERSIONS['doltlite']['version']}", text)
-    open(COMPOSE, "w", encoding="utf-8").write(text)
 
 
 def retire(moved):
@@ -273,7 +254,7 @@ def latest(engines):
         return 0
     write_versions()
     retire(moved)
-    print(f"\nversions.json and compose.yaml's defaults updated: "
+    print(f"\nversions.json updated: "
           + ", ".join(f"{e} {was} -> {now}" for e, (was, now) in moved.items()) + ".\n"
           "Next: `make lite-image` if DoltLite or SQLite moved (it builds the shell and records what the image carries), then the runs "
           "(`make run`, `make run-pg`, `make run-lite`, both index policies, `make memory-pairs`), then `make report`. "

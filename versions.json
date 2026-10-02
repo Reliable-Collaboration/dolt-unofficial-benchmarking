@@ -13,10 +13,10 @@
     "since": "2026-10-01"
   },
   "doltgres": {
-    "version": "1.3.3",
-    "image": "dolthub/doltgresql@sha256:82a33ad03f6a2a419092b9097e26485b3aec5e7e3ca8b2ffdf97c7d1aa3c3629",
+    "version": "1.4.0",
+    "image": "dolthub/doltgresql@sha256:3a119bb6726a0be283cfda2a73fa9fbdff58df06c0b850f245cd1828f57281a6",
     "named_by": "image digest",
-    "since": "2026-10-01"
+    "since": "2026-10-02"
   },
   "postgres": {
     "version": "18.6",

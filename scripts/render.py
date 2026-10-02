@@ -74,8 +74,6 @@ def blocks():
         "memory_grid": guarded(lambda r: report_pairs.memory_grid(r)),
         "databases": guarded(lambda r: report_pairs.databases_table(r)),
         "sizes_note": guarded(lambda r: report_pairs.sizes_note(r)),
-        "connect_table": guarded(lambda r: report_pairs.connect_table()),
-        "consoles_table": guarded(lambda r: report_pairs.consoles_table()),
         "findings_disk": guarded(lambda r: report_pairs.findings_totals(r, "bytes")),
         "findings_time": guarded(lambda r: report_pairs.findings_totals(r, "seconds")),
         "sizes_all": guarded(lambda r: report_pairs.sizes_all(r, "bytes")),

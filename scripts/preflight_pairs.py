@@ -15,7 +15,7 @@ import argparse, json, os, sys, time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import mem, run  # noqa: E402
-import doltgres_dialect, doltlite_dialect  # noqa: E402
+from doltsamples.dialects import doltgres as doltgres_dialect, doltlite as doltlite_dialect  # noqa: E402
 from pairs import (DOLTGRES_IMAGE, LITE_DUMPS, LITE_IMAGE, PG_DUMPS, POSTGRES_IMAGE, PREFLIGHT, PW,  # noqa: E402
                    exported, psql, psql_errors, psql_file, psql_value, q, wait_pg)
 

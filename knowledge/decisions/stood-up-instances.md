@@ -6,7 +6,7 @@ resource: /decisions/stood-up-instances.md
 tags:
 - stack
 - decision
-status: stable
+status: deprecated
 trust: verified
 generated:
   by: claude-code/claude-fable-5-1
@@ -57,4 +57,4 @@ The engine facts the stack rests on, for the versions `versions.json` names (the
 
 # Status
 
-accepted (2026-09-10).
+superseded-by [the split from dolt-megasamples](/decisions/split-from-dolt-megasamples.md) (deprecated 2026-10-02) -- the served stack is dolt-megasamples' now, generated from its configuration; this repository serves nothing. Kept as the record of how the stores were first served and what was verified then.

@@ -1,23 +1,25 @@
-# Agent handover: release 3, a fresh run on a fresh machine
+# Agent handover: release 3 of the benchmark, after the split
 
-Written 2026-09-16 at the end of the session that produced release 2 (merged into `main` as
-6ff2ec2). This branch, `release-3`, is that repository with every measured artefact removed, so
-that a new session on a new machine can measure everything again on the newest releases and
-nothing from the previous machine survives into the new documents. Read this file first, then
-`knowledge/index.md`, then the decision records it names. The maintainer will point you here.
+Rewritten 2026-10-02. This repository is **dolt-unofficial-benchmarking**: until that day it was
+dolt-megasamples, and its history is that repository's. On 2026-10-02 the maintainer split it: the
+hosting stayed in dolt-megasamples, every side-by-side test came here
+(`knowledge/decisions/split-from-dolt-megasamples.md`). Release 3's run had started on a new machine and was
+stopped and deleted at the split, so nothing is measured yet on the current versions. Read this
+file first, then `knowledge/index.md`, then the decision records it names.
 
 ## What this repository is, in one paragraph
 
-Two things. First, the 21 sample databases of
-[`sql-megasamples`](https://github.com/Reliable-Collaboration/sql-megasamples) loaded into
-DoltHub's three versioned engines (Dolt in place of MySQL, DoltgreSQL in place of PostgreSQL,
-DoltLite in place of SQLite) and served beside a set of web consoles, so people can open real data
-in each engine. Second, an experiment: for the same data, what does a Dolt engine cost against the
-database it stands in for, in disk, time and memory, measured by loading every database five ways
-into both sides of each pair. The README tells that story; REPORT.md carries every table and
-figure; JOURNAL.md the method and history; `knowledge/` the research trail and the decisions.
-Every number in those documents is generated from the measurement files in `build/` and
-`make check` fails if a document disagrees with them.
+An experiment: for the same data, what does a Dolt engine cost against the database it stands in
+for, in disk, time and memory? The 21 sample databases of
+[`sql-megasamples`](https://github.com/Reliable-Collaboration/sql-megasamples) are loaded five ways
+into both sides of each pair -- Dolt against MySQL, DoltgreSQL against PostgreSQL, DoltLite against
+SQLite -- and sized, timed and profiled the same way on both, plus three memory studies. It serves
+nothing: hosting the databases is [`dolt-megasamples`](https://github.com/Reliable-Collaboration/dolt-megasamples),
+which this repository depends on for the exports from the corpus, the dialect rules every Dolt engine
+needs and the DoltLite image (`scripts/common.py` imports its package `doltsamples` from a checkout at
+`../dolt-megasamples`). The README tells the story; REPORT.md carries every table and figure; JOURNAL.md the
+method and history; `knowledge/` the research trail and the decisions. Every number in those documents is
+generated from the measurement files in `build/` and `make check` fails if a document disagrees with them.
 
 ## The maintainer's standing instructions
 
@@ -50,11 +52,19 @@ These were given during release 2 and still hold. Quote them back when a decisio
   old commits can contain old data - we want to present what we know as current with most recent
   runs". A new run drops the old one's records; git history is the archive. Never build a
   historical table into the documents.
-- **Commits**: end each message with `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`
-  and the `Claude-Session:` line the harness gives you; pull-request bodies end with the
-  `🤖 Generated with [Claude Code]` line and the session link. Commit and push to this branch as
-  work lands; open a pull request from `release-3` to `main` when the run is complete, and leave the
-  merge to the maintainer.
+- **Commits**: end each message with the `Co-Authored-By:` line the harness gives for the model you are
+  (and the `Claude-Session:` line, when it gives one); pull-request bodies end with the
+  `🤖 Generated with [Claude Code]` line. Commit and push to a branch as work lands; open a pull request
+  to `main` when the work is complete, and leave the merge to the maintainer.
+- **The split** (2026-10-02): "The dolt-unofficial-benchmarking will be where we bring all of the 'side by
+  side testing'. It's objective is less about leaving a fully operational instance, and more about
+  looking at head-to-head performance and functionality statistics between each of the products that
+  we're comparing." Nothing that serves belongs here; a dialect rule found here belongs in
+  dolt-megasamples, so the databases people host carry it too.
+- **Run alongside the machine's other services** (2026-10-02, for the Threadripper box): the machine is
+  shared, so the documents say so (they do, from `build/environment.json`), and the worker's memory cap is
+  set to what is free (`DOLTSAMPLES_MEM_WORKER`). The maintainer raised the cap to 16 GiB after the 12 GiB
+  OOM below.
 - **Knowledge bundle**: every finding, decision and verified engine behaviour is recorded under
   `knowledge/` in the form `knowledge/runbooks/knowledge-bundle-conventions.md` describes;
   `make okf-check` validates it and `scripts/okf_check.py --bundle knowledge --write-index`
@@ -77,14 +87,11 @@ measured; DoltLite 0.50.10 was the newest. `make versions` says what is newest n
 
 ## What this branch starts with
 
-`make clean-run` was run on it: no `build/results.json`, no memory studies, no `build/method.json`,
-no `build/environment.json`, no `build/serve.json`, no spike results, no figures, no screenshots,
-and the console page says nothing is served. `versions.json` still names the previous run's
-versions (`make new-run` rewrites it) and `build/catalogue.json` still holds each database's
-description (not a measurement; `make catalogue` rewrites it from the corpus checkout). The
-rendered documents show `[not measured]` wherever a fact has no measurement yet, and `make check`
-passes in that state. The knowledge bundle is complete and describes the previous run; add to it,
-do not rewrite it.
+Nothing measured: no `build/results.json`, memory studies, method checks or machine record, and the
+documents show `[not measured]` wherever a fact has no measurement; `make check` passes in that state.
+`versions.json` names the versions resolved for release 3 on 2026-10-01 -- MySQL 9.7.2 (the LTS track, the
+maintainer's choice over the 26.7.0 Innovation release), Dolt 2.4.0, PostgreSQL 18.6, DoltgreSQL 1.3.3,
+SQLite 3.53.4 (built from source), DoltLite 0.50.14 -- and `make versions` says whether anything is newer.
 
 ## The machine needs
 
@@ -92,12 +99,15 @@ do not rewrite it.
   swap is off inside them), **Python 3.11 or newer** with PyYAML importable by `python3` (the
   Makefile makes `.venv` with matplotlib and PyYAML for the figures and the bundle checker, using
   `uv` if present), `git`, `gh` (for the pull request), and `make`.
+- **dolt-megasamples beside this checkout**: `../dolt-megasamples` (or `DOLT_MEGASAMPLES_DIR=...`), a clone
+  of its `main`; nothing in it needs building -- `make export` here runs its export, and `make lite-image`
+  here builds its DoltLite image for this repository's versions.
 - **The corpus beside this checkout**: `../sql-megasamples` (or `MEGASAMPLES_DIR=...` in the
   environment), cloned and built for MySQL, PostgreSQL and SQLite with the 21 core databases (in
   that repository: `uv sync`, `make configure` or a copied `megasamples.yaml`, `make run`; hours; one
   dataset, `lahman`, must be downloaded by hand from the link its fetch prints and placed where it says,
-  then `make run` again). The exports here read its running
-  `megasamples-mysql` and `megasamples-postgres` containers and its `build/sqlite/` tree.
+  then `make run` again). The exports read its images
+  (`sql-megasamples-mysql:dev` and the others) or its running servers, and its `build/sqlite/` tree.
 - **Disk**: the previous run's stores and exports took several hundred gigabytes, most of it the
   per-row-commit loads of the largest databases, and the maintainer provided 1.5 TB. The runners
   stop before a unit that would take free space below `--floor-gb`.
@@ -111,42 +121,25 @@ do not rewrite it.
 
 ## The order of work
 
-Nothing else may run on the machine while loads are timed; the corpus's stack must be down for
-the timed pairs (its MySQL is needed only for `make export`, its PostgreSQL only for
-`make export-pairs`).
+Nothing else may run on the machine while loads are timed (or, on a shared machine, nothing of this
+work); the corpus's MySQL must be up for `make run` (the Dolt loads' rows are checked against it), and
+its stack down for the pairs.
 
-1. `make versions`, then **`make new-run`**: resolves the newest release of all six engines,
-   writes `versions.json` and the compose defaults, builds the DoltLite image (with the SQLite shell
-   from source) and records the shell it carries. Commit `versions.json`. Note what it resolved: on
-   2026-09-17 MySQL's newest official image tag was 26.7.0, a numbering the maintainer may want to
-   look at before trusting it as "the release anyone is interested in".
-2. In the corpus checkout: `make compose && docker compose up -d mysql`. Here: `make export`
-   (mysqldump every database), then `make preflight` (every schema into MySQL and Dolt, no rows;
-   what each refuses). Read what the preflight refuses: a newer Dolt may take objects the transform
-   used to drop, and `scripts/dolt_dialect.py` says why each rule exists.
-3. **`make run`**, then **`make run ARGS="--indexes inline"`**: the MySQL/Dolt loads, five per
-   database, resumable, cheapest first. `make progress` shows the state.
-4. In the corpus checkout: `docker compose up -d postgres`. Here: `make export-pairs` (pg_dump three
-   ways, the SQLite files and their dumps, the references every unit is checked against), then
-   `make preflight-pairs`. Then bring the corpus's stack down (`make down` there).
+1. `make versions`; if anything is newer, **`make new-run`** (resolves the newest release of all six,
+   writes `versions.json`, builds the DoltLite image and records the shell it carries). Commit `versions.json`.
+2. **`make export`**: dolt-megasamples' export of every database, linked into `build/dumps/`. Then, in the
+   corpus checkout, `make compose && docker compose up -d mysql`, and here `make preflight` (every schema
+   into MySQL and Dolt, no rows; what each refuses).
+3. **`make run`**, then **`make run ARGS="--indexes inline"`**: the MySQL/Dolt loads. `make progress` shows the state.
+4. **`make preflight-pairs`**, then bring the corpus's stack down (`make down` there).
 5. **`make run-pg`**, **`make run-pg ARGS="--indexes inline"`**, **`make run-lite`**,
-   **`make run-lite ARGS="--indexes inline"`**. Each refuses to start beside another runner or a
-   served stack. `make progress` shows both pairs.
-6. **`make memory`** (Dolt's memory study, `build/memory.json`) and **`make memory-pairs`**
-   (DoltgreSQL's and DoltLite's, `build/memory_pairs.json`). Neither may run beside a runner or the
-   served stack; both take the run lock.
-7. **`make report`** (records the machine, runs the method checks, folds the units into
-   `build/results.json`, draws the figures, renders the documents, writes the console page), then
-   **`make check`**. Do this after every batch of units as well: the documents are meant to fill in
-   from the top as the run proceeds.
-8. **`make up`**, **`make test-stack`**, **`make screenshots`**, then `make report` and
-   `make check` again, so the README's pictures show this machine's stack.
-9. When the run is complete, rewrite the README's *How far this has been tested* paragraph: it says
-   the steps were followed end to end on one database on 2026-09-17, and that the full run on all 21
-   has not yet been done from nothing. Your run is that. Say what it took and what the section got wrong.
-10. Knowledge: a tool record per new engine version (what was verified on it, as
-   `knowledge/tools/doltgresql-1-3-2.md` and `knowledge/tools/doltlite-0-50-10.md` do), the older
-   ones deprecated; `log.md` entries; `make okf-check`. Then the pull request.
+   **`make run-lite ARGS="--indexes inline"`**.
+6. **`make memory`** and **`make memory-pairs`**.
+7. **`make report`**, then **`make check`**; also after every batch of units, so the documents fill in from the top.
+8. Rewrite the README's *How far this has been tested* paragraph from what the run took.
+9. Knowledge: a tool record per engine version measured (as `knowledge/tools/doltgresql-1-3-2.md` and
+   `knowledge/tools/doltlite-0-50-10.md` do), the older ones deprecated; `log.md` entries; `make okf-check`.
+   Then the pull request.
 
 ## Things that went wrong before, so they need not again
 
@@ -210,6 +203,24 @@ clone it by name. One artifact remains a hand download: `lahman`, behind a share
 corpus's README explains; its `make run` builds the other 20, exits non-zero naming it, and builds
 it once the file is placed.
 
+## Known at handover: what release 3 found before it was stopped (2026-10-01 to 02)
+
+* **The machine**: an AMD Ryzen Threadripper 3970X (64 threads), 30 GiB, 3.4 TB free, Ubuntu 26.04 on bare
+  metal, shared with other services. No Docker Engine: the containers run on rootless Podman 5.7 through
+  Docker's own client (29.8.2 in `~/.local/bin`, `docker context use podman`), the maintainer's choice. Memory
+  limits, swap off and OOM kills behave as Docker's (verified). The corpus needed three changes to build
+  there, on a local branch `rootless-podman` of `../sql-megasamples` (not pushed; the maintainer decides):
+  MySQL Shell as container root on a rootless engine, BuildKit asked for only of Docker, and a `.dockerignore`
+  Buildah reads as BuildKit does. Two corpus artifacts were re-pinned on content evidence: sakila (Oracle
+  re-zipped it; its three files byte-identical to August's) and lahman (Box zips the folder per download;
+  all 27 tables matched the corpus's checksums).
+* **The run** reached 163 units before the split: every deferred-index MySQL/Dolt unit but one, and 59 of the
+  63 inline ones. **employees' one-commit-per-row load on Dolt 2.4.0 was killed for memory under 12 GiB** at
+  3,624,968 of 3,919,015 commits, anonymous memory climbing steadily (1.2 GiB at the start, 8.3 GiB at 3.3 M
+  commits, about 3.4 GiB more over the last 300,000) with no collection during the load; Dolt 2.3.2 had
+  finished it under 16 GiB. The maintainer raised the cap to 16 GiB; whether that suffices on 2.4.0 is not yet
+  known. Every unit now records `memory_limit`.
+
 ## Open items the maintainer has not decided
 
 
@@ -224,7 +235,7 @@ it once the file is placed.
 - `knowledge/index.md`, then the decisions: `engine-versions-one-per-result-set.md` (the version
   rule, revised 2026-09-16), `documents-story-first.md` (how the documents are told),
   `pair-load-shapes-and-measurement.md` (what is measured and how), `pair-dialect-rules.md` (what
-  each engine needed changed), `stood-up-instances.md` (the served stack),
+  each engine needed changed), `stood-up-instances.md` (the served stack, deprecated: it is dolt-megasamples' now),
   `engine-bugs-patch-or-work-around.md` (the defects and what DoltHub did).
 - `knowledge/runbooks/pairs-run.md`: running the pairs, step by step, and the new-run procedure.
 - `docs/upstream/`: the bug reports as filed, and their state.

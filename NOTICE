@@ -1,4 +1,4 @@
-dolt-megasamples
+dolt-unofficial-benchmarking
 Copyright 2026 Reliable Collaboration
 
 This product includes software developed at Reliable Collaboration.
@@ -10,11 +10,11 @@ this notice to travel with any redistribution of this project's code.
 What this notice does NOT cover
 ------------------------------------------------------------------------------
 
-Apache-2.0 covers the code in this repository: the scripts, the compose stack and
-the generated report. It covers no data.
+Apache-2.0 covers the code in this repository: the scripts, the templates and
+the generated documents. It covers no data.
 
-This repository redistributes no sample data. `make export` reads it from a
-mysql-megasamples instance running on your own machine, and every dataset there
+This repository redistributes no sample data. `make export` reads it, through
+dolt-megasamples, from a sql-megasamples build on your own machine, and every dataset there
 keeps its own upstream licence -- several are CC BY-SA and carry share-alike and
 attribution obligations that Apache-2.0 does not satisfy and cannot override.
 Those terms, and the attribution each dataset requires, are in that project's

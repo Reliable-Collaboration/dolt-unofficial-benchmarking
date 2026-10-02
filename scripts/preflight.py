@@ -30,7 +30,7 @@ import argparse, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import DOLT_IMAGE, DUMPS, MEM_SOURCE, MEM_WORKER, ROOT, databases, mem, run  # noqa: E402
-from dolt_dialect import defer_indexes, transform  # noqa: E402
+from doltsamples.dialects.dolt import defer_indexes, transform  # noqa: E402
 
 MYSQL_IMAGE = os.environ.get("MEGASAMPLES_MYSQL_IMAGE", "mysql:9.7.2")
 MYSQL_NAME = "doltsamples-preflight-mysql"

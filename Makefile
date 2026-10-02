@@ -1,4 +1,4 @@
-# dolt-megasamples: load the sql-megasamples databases into Dolt and compare disk usage.
+# dolt-unofficial-benchmarking: each Dolt engine against the database it stands in for, on the sql-megasamples data.
 # Every target is a thin shim over a script in scripts/, so the experiment can be run without make.
 PY ?= python3
 
@@ -6,15 +6,15 @@ PY ?= python3
 # exists, so Make considered the target satisfied and silently skipped it -- both directly
 # and as a prerequisite of `report`, which is why the documents stayed stale while every
 # other step ran. Generated from the targets themselves so a new one cannot be forgotten.
-.PHONY: all audit charts check clean clean-data collect docs down environment estimate experiment export help load measure measure-all method-checks preflight progress report run status summary trace up watch \
-        export-postgres export-sqlite export-pairs lite-image preflight-pairs run-pg run-lite okf-check test-stack clean-pairs memory-pairs screenshots catalogue new-run memory clean-run
+.PHONY: all audit charts check clean clean-data collect docs environment estimate experiment export help load measure measure-all method-checks preflight progress report run summary trace watch \
+        lite-image preflight-pairs run-pg run-lite okf-check clean-pairs memory-pairs catalogue new-run memory clean-run versions
 
 help:
 	@echo "make run        the whole experiment, timed: 5 loads x every database (hours)"
 	@echo "make progress   what the run has done, is doing, and has left"
 	@echo "make watch      the same, redrawn every minute"
 	@echo "make all        the size-only pipeline: export -> load -> measure -> report"
-	@echo "make export     mysqldump every database out of a running sql-megasamples MySQL, both statement styles"
+	@echo "make export     every database out of the corpus through ../dolt-megasamples, all three sources, into build/dumps/"
 	@echo "make load       load those dumps into Dolt, commit and gc"
 	@echo "make measure    size both engines and check they hold the same rows"
 	@echo "make report     regenerate REPORT.md, the README tables and the figures"
@@ -25,18 +25,15 @@ help:
 	@echo ""
 	@echo "The PostgreSQL/DoltgreSQL and SQLite/DoltLite pairs (scripts/pairs.py):"
 	@echo "make lite-image     build the DoltLite image from the .deb packages versions.json names (checksummed)"
-	@echo "make export-pairs   pg_dump every database out of sql-megasamples PostgreSQL; copy and dump its SQLite files"
 	@echo "make preflight-pairs  every schema into PostgreSQL, DoltgreSQL, SQLite and DoltLite; what each refuses"
 	@echo "make run-pg | run-lite  the five timed loads of a pair (ARGS=\"--only sakila --indexes inline\")"
 	@echo "make memory-pairs   what DoltgreSQL and DoltLite need to open each database in each shape (build/memory_pairs.json)"
 	@echo "make okf-check      validate the knowledge bundle (knowledge/)"
 	@echo "make versions       each engine's version here beside the newest release upstream"
 	@echo "make new-run        start a new run: every Dolt engine to its newest release, the old run's units dropped"
-	@echo "make test-stack     after make up: both accounts on Dolt and DoltgreSQL, the DoltLite files, every console"
-	@echo "make screenshots    retake the README's pictures from the running stack (docs/screenshots/)"
 	@echo "make catalogue      copy each database's one-line description from the corpus checkout (build/catalogue.json)"
 	@echo "make memory         what Dolt needs to open each database in each shape (build/memory.json)"
-	@echo "make clean-run      remove every measured artefact (results, studies, machine record, figures, screenshots, run state) for a fresh run"
+	@echo "make clean-run      remove every measured artefact (results, studies, machine record, figures, run state) for a fresh run"
 	@echo "make audit      check the measurements against invariants that must hold"
 	@echo "make docs       regenerate README.md and JOURNAL.md from docs/templates and build/"
 	@echo "make trace      what the per-row-commit loads cost in memory as history accumulated"
@@ -44,22 +41,16 @@ help:
 	@echo "make summary    the whole experiment as labelled tables: disk, time, memory, progress"
 	@echo "make experiment the row-INSERT and per-row-commit loads, then the report"
 	@echo "make check      fail if the report, the README table or a prose number is stale"
-	@echo "make up         Dolt, DoltgreSQL, the DoltLite files and the consoles (3307, 5433, 8090-8095)"
-	@echo "                SERVE=rowcommit serves the one-commit-per-row loads (default oneshot; also rowinsert,"
-	@echo "                rowinsert_inline, rowcommit_inline); SERVE_DATABASES=\"sakila chinook\" or all; DOLT_MEM=8g"
-	@echo "make down       all of it down again"
-	@echo "make status     what is running"
 	@echo "make clean-data delete the Dolt data directory (written as root inside the container)"
 	@echo "make clean-pairs delete the PostgreSQL, DoltgreSQL, SQLite and DoltLite stores of every shape (keeps the exports)"
 
-# The experiment needs sql-megasamples' MySQL running: it is the source of every dump.
 all: export load measure report
 
-# both statement styles: the extended INSERTs the bulk load uses, and one INSERT per row for the
-# row-by-row loads (build/dumps/rowwise/); the runner needs both
+# dolt-megasamples exports every database from the corpus -- mysqldump both statement styles (the
+# extended INSERTs the bulk load uses, one INSERT per row for the row-by-row loads), pg_dump three
+# ways, the SQLite files and their dumps, the references -- and the files are linked into build/dumps/
 export:
-	@$(PY) scripts/export_mysql.py $(ARGS)
-	@$(PY) scripts/export_mysql.py --per-row $(ARGS)
+	@$(PY) scripts/export.py $(ARGS)
 load:
 	@$(PY) scripts/load_dolt.py
 measure:
@@ -83,7 +74,6 @@ collect:
 	@$(PY) scripts/collect_pairs.py
 
 report: environment method-checks collect charts docs
-	@$(PY) scripts/console_page.py
 
 # The figures. matplotlib lives in .venv because it is this repository's only dependency; the rest
 # of the pipeline runs on the system python and shells out to docker.
@@ -140,20 +130,6 @@ check:
 	@$(PY) scripts/render.py --check
 	@$(MAKE) --no-print-directory okf-check
 
-up:
-	@docker image inspect doltsamples-doltlite:$$($(PY) -c "import json; print(json.load(open('versions.json'))['doltlite']['version'])") >/dev/null 2>&1 || $(MAKE) --no-print-directory lite-image
-	@DOLTSAMPLES_SERVE="$(SERVE)" DOLTSAMPLES_SERVE_DATABASES="$(SERVE_DATABASES)" DOLTSAMPLES_DOLT_MEM="$(DOLT_MEM)" DOLTSAMPLES_DOLTGRES_MEM="$(DOLTGRES_MEM)" $(PY) scripts/stack_config.py
-	@docker compose up -d
-	@$(PY) scripts/console_page.py
-	@$(PY) scripts/stack_config.py --urls
-
-down:
-	@docker compose down
-
-status:
-	@docker ps --filter label=com.docker.compose.project=dolt-megasamples \
-	  --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' || true
-
 # Dolt's container writes as root, so the host user cannot delete data/dolt directly -- `rm -rf`
 # fails with "Permission denied" on every file and leaves the directory looking loaded. Removing it
 # from inside a container is the only thing that works without sudo.
@@ -190,14 +166,14 @@ memory:
 	@$(PY) scripts/memory_profile.py $(ARGS)
 
 # A fresh run on a fresh machine: every artefact that records a measurement goes -- the folded results,
-# the memory studies, the method checks, the machine record, what the stack served, the spike's
-# results, the figures, the screenshots, the console page and the run state -- so nothing measured
+# the memory studies, the method checks, the machine record, the spike's results, the figures and the
+# run state -- so nothing measured
 # elsewhere can survive into the new run's documents. The stores (data/) and the exports (build/dumps/)
 # are only named: they are large, and removing them is `make clean-data` and `make clean-pairs`.
 clean-run:
 	@rm -f build/results.json build/memory.json build/memory_pairs.json build/method.json build/environment.json \
-	  build/serve.json build/progress.json build/results.json.previous docker/console/index.html \
-	  docs/img/*.png docs/screenshots/*.png build/spike-concurrent/*.json
+	  build/progress.json build/results.json.previous \
+	  docs/img/*.png build/spike-concurrent/*.json
 	@echo "  . removed every measured artefact; versions.json and build/catalogue.json stay (make new-run and make catalogue rewrite them)"
 	@test ! -d data || echo "  ! data/ still holds stores from the last run: make clean-data (Dolt) and make clean-pairs (the pairs) remove them"
 	@test ! -d build/dumps || echo "  ! build/dumps/ still holds the last run's exports: rm -rf build/dumps to export afresh"
@@ -210,29 +186,16 @@ new-run:
 
 lite-image:
 	@$(PY) scripts/lite_image.py
-export-postgres:
-	@$(PY) scripts/export_postgres.py $(ARGS)
-export-sqlite:
-	@$(PY) scripts/export_sqlite.py $(ARGS)
-export-pairs: export-postgres export-sqlite
 preflight-pairs:
 	@$(PY) scripts/preflight_pairs.py $(ARGS)
 run-pg:
 	@$(PY) scripts/run_pairs.py --pair pg $(ARGS)
 run-lite:
 	@$(PY) scripts/run_pairs.py --pair lite $(ARGS)
-# the README's screenshots, taken by docs/screenshots/capture.py in the Playwright image on the host's
-# network, because the Workbench's page calls its API at the address the host publishes
-screenshots:
-	@docker run --rm --network host --user "$$(id -u):$$(id -g)" -e HOME=/tmp -e STACK_HOST -v "$(CURDIR)/docs/screenshots:/out" \
-	  mcr.microsoft.com/playwright/python:v1.49.1-noble sh -c "pip install -q --user playwright==1.49.1 && python3 /out/capture.py"
-
 # what each database is, in the corpus's own words; needs the sql-megasamples checkout (MEGASAMPLES_DIR)
 catalogue:
 	@$(PY) scripts/catalogue.py
 
-test-stack:
-	@$(PY) scripts/stack_check.py
 memory-pairs:
 	@$(PY) scripts/memory_profile_pairs.py $(ARGS)
 okf-check: .venv/.deps-matplotlib-pyyaml

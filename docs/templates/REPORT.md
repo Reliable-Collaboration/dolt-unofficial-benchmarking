@@ -130,14 +130,14 @@ MySQL and Dolt:
 
 * **MySQL** is loaded into a **fresh, empty server** — not read from the megasamples image, which was built by a `mysqlsh` restore with deferred index builds and is measurably more compact than the same data loaded from SQL. Comparing against it would compare Dolt against a differently-built MySQL.
 * **Dolt** is loaded by the `dolt` CLI. **Each database gets its own data directory**, which is not a detail: Dolt opens every database under its `--data-dir` at startup, so a shared directory made each load pay to open everything loaded before it. That inflated the later loads in every phase and, at the size the per-row-commit directory reaches, exhausted the host outright.
-* **Both engines load the identical transformed file.** `scripts/dolt_dialect.py` documents each rule and each is reported; none of them touches a row.
+* **Both engines load the identical transformed file.** `dolt-megasamples`' `doltsamples/dialects/dolt.py` documents each rule and each is reported; none of them touches a row.
 * **Sizes exclude what a server writes.** A `dolt sql-server` writes statistics into `.dolt/stats` that `dolt gc` does not reclaim, so a served directory and an unserved one are not comparable by `du`. The measurement subtracts them and reports separately what a server adds.
 
 PostgreSQL and DoltgreSQL, SQLite and DoltLite:
 
 * **Every DoltgreSQL load runs in a server started for it alone**, over an empty root, so what a load costs is that database's alone; the first version kept one server per shape, and a 255-row database then peaked at nearly a gigabyte because of everything loaded before it. PostgreSQL likewise gets a fresh server per load.
 * **"The same file" for DoltLite is the dump replayed into a DoltLite-format database.** A stock SQLite file opened by DoltLite runs on SQLite's own B-tree engine without version control, which would have measured SQLite twice. The `sqlite` baseline is the same replay by `sqlite3`.
-* **Both engines of a pair load the same transformed file.** `scripts/doltgres_dialect.py` and `scripts/doltlite_dialect.py` hold the rules, each found by refusal and named in every unit's notes: a GIN index DoltgreSQL cannot build, `regexp_like` checks and generated-column tables it cannot take rows for, the order and the virtual-table registration DoltLite needs. What an engine still refuses is recorded on the unit and listed under *What each engine refused*, never hidden.
+* **Both engines of a pair load the same transformed file.** `dolt-megasamples`' `doltsamples/dialects/doltgres.py` and `doltsamples/dialects/doltlite.py` hold the rules, each found by refusal and named in every unit's notes: a GIN index DoltgreSQL cannot build, `regexp_like` checks and generated-column tables it cannot take rows for, the order and the virtual-table registration DoltLite needs. What an engine still refuses is recorded on the unit and listed under *What each engine refused*, never hidden.
 * **A fresh PostgreSQL database is not empty**: it is a copy of the template catalog, about 7 MiB before the first row, which MySQL's per-schema directory and Dolt's repository do not carry. The PostgreSQL sizes include it; the ratio for a small database is therefore mostly that floor.
 
 ### How each load is measured

@@ -35,7 +35,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import (DOLT_IMAGE, DUMPS, MEM_HELPER, MEM_WORKER, MYSQL_CONTAINER, RESULTS,
                     ROOT, data_dir, databases, mem,  # noqa: E402
                     dumps_dir, human, run, version_gate, version_of, VERSIONS, current as unit_current)
-from dolt_dialect import defer_indexes, transform  # noqa: E402
+from doltsamples.dialects.dolt import defer_indexes, transform  # noqa: E402
 from load_dolt import per_row_commits  # noqa: E402
 
 PROGRESS = os.path.join(ROOT, "build", "progress.json")

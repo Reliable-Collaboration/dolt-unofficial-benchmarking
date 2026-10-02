@@ -79,8 +79,7 @@ def main():
         print(f"--indexes inline: the row-by-row phases only ({', '.join(phases)})\n", flush=True)
     dbs = a.only or exported(a.pair)
     if not dbs:
-        sys.exit(f"nothing exported for the {a.pair} pair: run scripts/export_"
-                 f"{'postgres' if a.pair == 'pg' else 'sqlite'}.py first")
+        sys.exit(f"nothing exported for the {a.pair} pair: `make export` first")
     rows = {db: committed_rows(a.pair, db) for db in dbs}
     skipped = [db for db in dbs if a.max_rows is not None and rows[db] > a.max_rows]
     order = sorted((db for db in dbs if db not in skipped), key=lambda d: rows[d])

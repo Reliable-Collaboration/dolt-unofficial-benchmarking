@@ -1,5 +1,11 @@
 # Log
 
+## 2026-10-02
+
+* **Creation**: [the split from dolt-megasamples](/decisions/split-from-dolt-megasamples.md) -- on the maintainer's word this repository becomes dolt-unofficial-benchmarking: it keeps dolt-megasamples' history and every side-by-side test, imports the dialect rules, the exports and the DoltLite image from a dolt-megasamples checkout, and serves nothing. Records written before the split name the dialect modules at their old paths (`scripts/dolt_dialect.py` and the rest); they now live in dolt-megasamples as `doltsamples/dialects/`.
+* **Deprecation**: [the served instance](/decisions/stood-up-instances.md) -- the stack moved to dolt-megasamples with the split; the record stays as the history of how it was first served.
+* **Deviation**: release 3's run was stopped at 163 units and deleted on the maintainer's word: employees' one-commit-per-row load on Dolt 2.4.0 was killed for memory at 3,624,968 of 3,919,015 commits under a 12 GiB worker cap (anonymous memory climbing about 3.4 GiB over the last 300,000 commits, no collection during the load), where Dolt 2.3.2 had finished it under 16 GiB. Whether 2.4.0 needs more than 2.3.2 is not known: the earlier run's peak was not kept.
+
 ## 2026-10-01
 
 * **Update**: release 3 begins on a new machine -- an AMD Ryzen Threadripper 3970X (64 threads), 30 GiB of memory, 3.4 TB free, Ubuntu 26.04 on bare metal -- with no Docker Engine. By the maintainer's decision the containers run on rootless Podman 5.7 through Docker's own command-line client (29.8.2, static, in `~/.local/bin`, its context set to Podman's Docker-compatible socket), so every `docker` call in the scripts behaves and formats as before; verified that a container's `--memory` is enforced as `memory.max` with `memory.swap.max` 0, that a container over its limit is killed with exit 137, and that `memory.peak` is readable inside it. Also by the maintainer's decision the machine is not dedicated: other services (GitLab, NetBox and their databases) run beside the timed loads, and the documents must say so.

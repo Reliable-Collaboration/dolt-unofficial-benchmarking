@@ -41,6 +41,16 @@ MYSQL_CONTAINER = os.environ.get("MEGASAMPLES_CONTAINER", "megasamples-mysql")
 # the MySQL image sql-megasamples builds; MEGASAMPLES_DIR is that repository's checkout
 MYSQL_IMAGE = os.environ.get("MEGASAMPLES_MYSQL_IMAGE", "sql-megasamples-mysql:dev")
 MEGASAMPLES_DIR = os.environ.get("MEGASAMPLES_DIR", os.path.join(os.path.dirname(ROOT), "sql-megasamples"))
+# dolt-megasamples, the prerequisite that owns what this experiment shares with the databases people host:
+# the exports from the corpus, the dialect rules each Dolt engine needs, and the DoltLite image. Its
+# package `doltsamples` is imported from the checkout, so a rule fixed there is the rule measured here.
+DOLT_MEGASAMPLES_DIR = os.path.abspath(os.environ.get("DOLT_MEGASAMPLES_DIR",
+                                                      os.path.join(os.path.dirname(ROOT), "dolt-megasamples")))
+if not os.path.isdir(os.path.join(DOLT_MEGASAMPLES_DIR, "doltsamples")):
+    sys.exit(f"dolt-unofficial-benchmarking needs a dolt-megasamples checkout at {DOLT_MEGASAMPLES_DIR} "
+             f"(git clone https://github.com/Reliable-Collaboration/dolt-megasamples there, or set DOLT_MEGASAMPLES_DIR)")
+if DOLT_MEGASAMPLES_DIR not in sys.path:
+    sys.path.insert(0, DOLT_MEGASAMPLES_DIR)
 # ------------------------------------------------------------- engine versions ---
 # One version per run, and no pins (the maintainer's rule, 2026-09-12, revised 2026-09-16). A run
 # starts on the newest release of every Dolt engine (`make new-run`: scripts/versions.py resolves

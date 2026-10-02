@@ -23,7 +23,7 @@ import argparse, json, os, re, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import (DOLT_IMAGE, DUMPS, MODES, data_dir, dolt, dumps_dir, human,  # noqa: E402
                     load_results, run, save_results)
-from dolt_dialect import transform  # noqa: E402
+from doltsamples.dialects.dolt import transform  # noqa: E402
 
 # One commit per row. `CALL DOLT_COMMIT('-Am', ...)` after each INSERT is what turns a load into a
 # history: `-A` stages every change, `-m` gives the message. Dolt refuses a commit with nothing
@@ -55,12 +55,12 @@ def prepare_dump(db, mode="oneshot"):
     """Rewrite the dump into the dialect Dolt accepts, keeping every row untouched.
 
     Written beside the originals so both are on disk and the difference can be inspected;
-    scripts/dolt_dialect.py explains each transformation and why it is needed."""
+    dolt-megasamples' doltsamples/dialects/dolt.py explains each transformation and why it is needed."""
     src = os.path.join(dumps_dir(mode != "oneshot"), f"{db}.sql")
     out_dir = os.path.join(DUMPS, "dolt", mode)
     os.makedirs(out_dir, exist_ok=True)
     out = os.path.join(out_dir, f"{db}.sql")
-    sql, notes = transform(open(src, "rb").read(), db)   # bytes: see scripts/dolt_dialect.py
+    sql, notes = transform(open(src, "rb").read(), db)   # bytes: see dolt-megasamples' doltsamples/dialects/dolt.py
     if mode == "rowcommit":
         sql, n = per_row_commits(sql)
         notes.append(f"added a DOLT_COMMIT after each of {n:,} INSERT statements")
@@ -71,7 +71,7 @@ def prepare_dump(db, mode="oneshot"):
 def load(db, force, mode="oneshot"):
     dump = os.path.join(dumps_dir(mode != "oneshot"), f"{db}.sql")
     if not os.path.exists(dump):
-        return {"error": f"no dump for {mode}; run scripts/export_mysql.py"
+        return {"error": f"no dump for {mode}; run scripts/export.py"
                          + (" --per-row" if mode != "oneshot" else "")}
     target = os.path.join(data_dir(mode), db)
     if os.path.isdir(target) and not force:
@@ -118,7 +118,7 @@ def main():
     src_dir = dumps_dir(a.mode != "oneshot")
     names = a.only or sorted(f[:-4] for f in os.listdir(src_dir) if f.endswith(".sql"))
     if not names:
-        sys.exit("no dumps found; run scripts/export_mysql.py first")
+        sys.exit("no dumps found; run scripts/export.py first")
 
     results = load_results()
     print(f"loading {len(names)} database(s) into Dolt — mode {a.mode}: {MODES[a.mode]}")

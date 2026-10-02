@@ -35,7 +35,7 @@ import json, os, re, sys, time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import DUMPS, MEGASAMPLES_DIR, MEM_WORKER, ROOT, VERSIONS, mem, run  # noqa: E402
-import doltgres_dialect, doltlite_dialect  # noqa: E402
+from doltsamples.dialects import doltgres as doltgres_dialect, doltlite as doltlite_dialect  # noqa: E402
 
 # --------------------------------------------------------------------------------- images ---
 # ====================================================================================================
@@ -114,7 +114,7 @@ def data_dir(engine, mode):
 def reference(pair, db):
     path = os.path.join(PG_DUMPS if pair == "pg" else LITE_DUMPS, f"{db}.reference.json")
     if not os.path.exists(path):
-        raise RuntimeError(f"no reference for {db}: run scripts/export_{'postgres' if pair == 'pg' else 'sqlite'}.py first")
+        raise RuntimeError(f"no reference for {db}: run `make export` first")
     return json.load(open(path, encoding="utf-8"))
 
 

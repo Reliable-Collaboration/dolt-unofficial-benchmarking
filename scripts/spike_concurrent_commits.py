@@ -37,7 +37,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import DOLT_IMAGE, DUMPS, MEM_WORKER, ROOT, VERSIONS, dumps_dir, human, mem, run  # noqa: E402
-from dolt_dialect import defer_indexes  # noqa: E402
+from doltsamples.dialects.dolt import defer_indexes  # noqa: E402
 from pairs import DOLTGRES_IMAGE, POSTGRES_IMAGE, prepare  # noqa: E402
 
 OUT = os.path.join(ROOT, "build", "spike-concurrent")

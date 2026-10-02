@@ -287,7 +287,8 @@ def versions_table():
     def answered(text):
         return (text or "not recorded").replace("|", "\\|")
 
-    dockerfile = open(os.path.join(ROOT, "docker", "doltlite", "Dockerfile"), encoding="utf-8").read()
+    from common import DOLT_MEGASAMPLES_DIR
+    dockerfile = open(os.path.join(DOLT_MEGASAMPLES_DIR, "docker", "doltlite", "Dockerfile"), encoding="utf-8").read()
     base = re.search(r"^FROM (\S+)", dockerfile, re.M)
     rows = [
         ("MySQL", "mysql", short(VERSIONS["mysql"]["image"]), env.get("mysql_version")),
@@ -464,39 +465,6 @@ def sizes_note(results):
             f"{human(once[0][0])} in {PAIRS[PAIR_ORDER[0]]['engine']} with one commit and {human(each[0][0])} with a commit "
             f"per row" + (f" ({others})" if others else "") + ". The one-commit stores are what `make up` serves; "
             "[choosing what is served](#choosing-what-is-served) says how to serve the others.*")
-
-
-def connect_table():
-    """How to reach each served engine, in the words the landing page uses (scripts/console_page.py),
-    so the README and the page cannot disagree about a port, an account or a client line."""
-    import console_page
-    code = {"client", "URL", "JDBC", "open", "copy one out"}
-    import html
-    engines = [(title.split(" (")[0], dict(rows)) for title, rows in console_page.CONNECT]
-    keys = []
-    for _, rows in engines:
-        keys += [k for k in rows if k not in keys]
-    L = ["| | " + " | ".join(name for name, _ in engines) + " |", "|---|" + "---|" * len(engines)]
-    for k in keys:
-        cells = []
-        for _, rows in engines:
-            v = rows.get(k)
-            cells.append(("`" + v + "`" if k in code else html.escape(v, quote=False)) if v else "—")
-        L.append(f"| {k} | " + " | ".join(cells) + " |")
-    return "\n".join(L)
-
-
-def consoles_table():
-    """The consoles as the landing page lists them, most coverage first, with the index page on top."""
-    import console_page, html
-    P = console_page.P
-    L = ["| | address | browses | notes |", "|---|---|---|---|",
-         f"| **console index** | **<http://127.0.0.1:{P['console']}/>** | every engine | **start here**: how to connect your own "
-         "tool, the consoles by what each can open, and every database with what it is and its size in each engine, "
-         "generated from the measurements and the running stack |"]
-    for name, port, cover, note in console_page.CONSOLES:
-        L.append(f"| {name} | <http://127.0.0.1:{port}/> | {cover} | {html.escape(note, quote=False)} |")
-    return "\n".join(L)
 
 
 def memory_grid(results):

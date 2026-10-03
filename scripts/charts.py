@@ -520,6 +520,15 @@ def fig_by_database(results, axis, name, xlabel):
     dbs = order(results)
     fig, axes = plt.subplots(1, 3, figsize=(18, 0.42 * len(dbs) + 2.6), sharey=True)
     for ax, pair in zip(axes, PAIR_ORDER):
+        if not any(measure(results[d], pair, test_of(pair, sh), axis) for d in dbs for sh in SHAPES):
+            # a pair with nothing measured yet: a log axis has nothing to scale, so the panel says so
+            # (the documents fill in pair by pair as a run proceeds)
+            ax.text(.5, .5, f"{PAIRS[pair]['title']}\nnot measured yet", ha="center", va="center",
+                    transform=ax.transAxes, fontsize=10, color=INK)
+            ax.set_xticks([])
+            for spine in ax.spines.values():
+                spine.set_visible(False)
+            continue
         for sh in SHAPES:
             xs, ys = [], []
             for i, d in enumerate(dbs):

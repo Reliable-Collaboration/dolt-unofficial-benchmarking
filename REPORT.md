@@ -23,7 +23,7 @@ Every table and figure behind [README.md](README.md), for all three pairs -- MyS
 | Disk | 3.6 TiB ext4 |
 | Kernel | 7.0.0-34-generic |
 | Containers | Podman 5.7.0, rootless, through Docker's client 29.8.2; storage driver `overlay` |
-| Shared with | 4 other containers running at capture, belonging to other work on the host; 22.8 GiB memory available |
+| Shared with | 4 other containers running at capture, belonging to other work on the host; 22.9 GiB memory available |
 | MySQL | `mysql@sha256:e2bde46db6563855d7177adb5f0b57b9dc663f5a20927a90f4259d3312068497` — /usr/sbin/mysqld  Ver 9.7.2 for Linux on x86_64 (MySQL Community Server - GPL), named by image digest |
 | Dolt | `dolthub/dolt-sql-server` — dolt version 2.4.0, named by image digest |
 | PostgreSQL | `postgres` — postgres (PostgreSQL) 18.6 (Debian 18.6-1.pgdg12+2), named by image digest |
@@ -189,7 +189,89 @@ The three row-by-row loads of every pair, run again with every secondary index a
 
 ![What maintaining the indexes costs, MySQL and Dolt](docs/img/index-policy-dolt.png)
 
-*Neither index policy has been measured yet.*
+Tests 2, 4 and 5 run twice: once with the secondary indexes and foreign keys dropped for the load and rebuilt afterwards, and once with every index maintained on every row. Everything else is identical, including the final schema. A positive number means keeping the indexes cost more.
+
+#### MySQL, one `INSERT` per row
+
+| database | disk, deferred | disk, inline | change | time, deferred | time, inline | change |
+|---|---:|---:|---:|---:|---:|---:|
+| `adventureworks` | 311.0 MiB | 335.9 MiB | +8.0% | 3 min 42 s | 3 min 35 s | -2.8% |
+| `adventureworks_lt` | 11.5 MiB | 12.5 MiB | +8.4% | 2.2 s | 1.6 s | -27.3% |
+| `chicago_crimes` | 72.1 MiB | 84.1 MiB | +16.6% | 1 min 13 s | 1 min 20 s | +10.6% |
+| `chinook` | 2.6 MiB | 2.7 MiB | +3.6% | 4.2 s | 4.3 s | +2.4% |
+| `contoso` | 135.3 MiB | 156.3 MiB | +15.5% | 3 min 17 s | 3 min 26 s | +4.3% |
+| `dvdstore` | 50.0 MiB | 60.1 MiB | +20.2% | 45 s | 45 s | +1.1% |
+| `employees` | 176.3 MiB | 178.3 MiB | +1.1% | 16 min 20 s | 16 min 22 s | +0.2% |
+| `enron` | 66.2 MiB | 134.2 MiB | +102.7% | 17 s | 24 s | +37.4% |
+| `jaffle_shop` | 372.0 KiB | 372.0 KiB | +0.0% | 0.2 s | 0.2 s | +0.0% |
+| `lahman` | 178.9 MiB | 191.8 MiB | +7.3% | 3 min 08 s | 3 min 11 s | +1.3% |
+| `northwind` | 2.7 MiB | 2.6 MiB | -1.8% | 1.7 s | 1.3 s | -23.5% |
+| `nyc_taxi` | 16.1 MiB | 19.1 MiB | +18.6% | 13 s | 14 s | +6.9% |
+| `oracle_co` | 1.8 MiB | 1.8 MiB | +2.6% | 2.5 s | 2.5 s | +0.0% |
+| `oracle_hr` | 1.1 MiB | 1.1 MiB | +0.0% | 0.4 s | 0.2 s | -50.0% |
+| `oracle_oe` | 19.6 MiB | 28.6 MiB | +46.4% | 3.9 s | 3.9 s | +0.0% |
+| `oracle_sh` | 188.4 MiB | 220.2 MiB | +16.9% | 4 min 34 s | 4 min 58 s | +8.8% |
+| `pubs` | 1.5 MiB | 1.5 MiB | +0.0% | 0.4 s | 0.3 s | -25.0% |
+| `sakila` | 22.3 MiB | 24.1 MiB | +8.1% | 13 s | 13 s | +2.4% |
+| `smallsets` | 644.0 KiB | 644.0 KiB | +0.0% | 0.7 s | 0.7 s | +0.0% |
+| `stackexchange_beer` | 73.6 MiB | 89.6 MiB | +21.7% | 18 s | 18 s | +2.8% |
+| `wikipedia_simple` | 235.2 MiB | 346.2 MiB | +47.2% | 5 min 22 s | 5 min 35 s | +4.0% |
+| **21 databases** | **1.5 GiB** | **1.8 GiB** | **+20.7%** | **39 min 38 s** | **40 min 36 s** | **+2.5%** |
+
+#### Dolt, one `INSERT` per row, one commit
+
+| database | disk, deferred | disk, inline | change | time, deferred | time, inline | change |
+|---|---:|---:|---:|---:|---:|---:|
+| `adventureworks` | 49.1 MiB | 49.2 MiB | +0.1% | 20 min 42 s | 27 min 11 s | +31.3% |
+| `adventureworks_lt` | 1.0 MiB | 1.0 MiB | -0.0% | 4.9 s | 5.4 s | +10.2% |
+| `chicago_crimes` | 28.8 MiB | 28.9 MiB | +0.1% | 4 min 57 s | 9 min 08 s | +84.2% |
+| `chinook` | 615.0 KiB | 615.0 KiB | -0.0% | 16 s | 18 s | +14.2% |
+| `contoso` | 39.2 MiB | 39.3 MiB | +0.2% | 11 min 50 s | 15 min 10 s | +28.1% |
+| `dvdstore` | 12.4 MiB | 11.9 MiB | -3.5% | 2 min 41 s | 3 min 30 s | +30.0% |
+| `employees` | 43.5 MiB | 41.0 MiB | -5.7% | 1 h 03 min | 1 h 05 min | +2.5% |
+| `enron` | 38.6 MiB | 34.1 MiB | -11.6% | 1 min 43 s | 3 min 53 s | +125.6% |
+| `jaffle_shop` | 37.7 KiB | 37.7 KiB | +0.0% | 0.7 s | 0.6 s | -14.3% |
+| `lahman` | 26.3 MiB | 26.3 MiB | +0.1% | 12 min 57 s | 14 min 40 s | +13.3% |
+| `northwind` | 518.5 KiB | 518.5 KiB | -0.0% | 4.2 s | 5.5 s | +31.0% |
+| `nyc_taxi` | 3.0 MiB | 3.0 MiB | +1.1% | 54 s | 1 min 15 s | +38.4% |
+| `oracle_co` | 456.1 KiB | 456.3 KiB | +0.0% | 8.3 s | 10 s | +22.9% |
+| `oracle_hr` | 62.1 KiB | 62.8 KiB | +1.1% | 0.6 s | 0.7 s | +16.7% |
+| `oracle_oe` | 5.1 MiB | 4.2 MiB | -17.4% | 16 s | 41 s | +148.8% |
+| `oracle_sh` | 143.4 MiB | 128.6 MiB | -10.3% | 19 min 56 s | 34 min 57 s | +75.3% |
+| `pubs` | 77.0 KiB | 77.0 KiB | -0.0% | 0.6 s | 0.7 s | +16.7% |
+| `sakila` | 2.2 MiB | 2.0 MiB | -7.8% | 1 min 02 s | 1 min 22 s | +31.8% |
+| `smallsets` | 164.3 KiB | 164.3 KiB | -0.0% | 2.5 s | 2.5 s | +0.0% |
+| `stackexchange_beer` | 16.1 MiB | 13.9 MiB | -13.3% | 1 min 18 s | 2 min 01 s | +55.0% |
+| `wikipedia_simple` | 124.8 MiB | 123.8 MiB | -0.8% | 21 min 28 s | 29 min 44 s | +38.5% |
+| **21 databases** | **535.3 MiB** | **509.1 MiB** | **-4.9%** | **2 h 44 min** | **3 h 29 min** | **+27.7%** |
+
+#### Dolt, one commit per row
+
+| database | disk, deferred | disk, inline | change | time, deferred | time, inline | change |
+|---|---:|---:|---:|---:|---:|---:|
+| `adventureworks` | 7.4 GiB | 15.0 GiB | +101.8% | 1 h 08 min | 2 h 30 min | +118.8% |
+| `adventureworks_lt` | 19.3 MiB | 37.2 MiB | +92.3% | 12 s | 14 s | +19.7% |
+| `chicago_crimes` | 2.3 GiB | 10.4 GiB | +352.2% | 10 min 46 s | 19 min 08 s | +77.8% |
+| `chinook` | 83.5 MiB | 114.1 MiB | +36.7% | 40 s | 51 s | +29.1% |
+| `contoso` | 6.6 GiB | 11.2 GiB | +68.0% | 32 min 03 s | 40 min 15 s | +25.6% |
+| `dvdstore` | 1.7 GiB | 3.3 GiB | +95.7% | 6 min 57 s | 9 min 03 s | +30.3% |
+| `employees` | 62.0 GiB | 68.8 GiB | +10.9% | 3 h 15 min | 3 h 33 min | +9.3% |
+| `enron` | 370.0 MiB | 5.9 GiB | +1520.0% | 2 min 46 s | 8 min 02 s | +189.8% |
+| `jaffle_shop` | 686.0 KiB | 790.4 KiB | +15.2% | 1.5 s | 1.5 s | +0.0% |
+| `lahman` | 6.5 GiB | 8.8 GiB | +35.3% | 35 min 29 s | 39 min 06 s | +10.2% |
+| `northwind` | 13.5 MiB | 26.3 MiB | +94.8% | 10 s | 14 s | +36.3% |
+| `nyc_taxi` | 321.1 MiB | 918.3 MiB | +186.0% | 1 min 52 s | 2 min 32 s | +34.8% |
+| `oracle_co` | 36.8 MiB | 65.0 MiB | +76.6% | 21 s | 26 s | +20.3% |
+| `oracle_hr` | 444.7 KiB | 837.9 KiB | +88.4% | 1.3 s | 1.4 s | +7.7% |
+| `oracle_oe` | 70.1 MiB | 854.4 MiB | +1119.2% | 34 s | 1 min 26 s | +154.4% |
+| `oracle_sh` | 15.4 GiB | 56.0 GiB | +262.3% | 54 min 26 s | 1 h 38 min | +80.1% |
+| `pubs` | 625.3 KiB | 769.4 KiB | +23.0% | 1.5 s | 1.6 s | +6.7% |
+| `sakila` | 314.5 MiB | 684.4 MiB | +117.6% | 2 min 36 s | 4 min 03 s | +55.5% |
+| `smallsets` | 8.4 MiB | 8.3 MiB | -1.7% | 5.6 s | 5.6 s | +0.0% |
+| `stackexchange_beer` | 431.2 MiB | 1.9 GiB | +360.6% | 2 min 55 s | 4 min 37 s | +58.1% |
+| `wikipedia_simple` | 12.3 GiB | 28.4 GiB | +130.6% | 54 min 26 s | 1 h 14 min | +36.9% |
+| **21 databases** | **116.0 GiB** | **212.3 GiB** | **+83.0%** | **7 h 50 min** | **11 h 07 min** | **+41.7%** |
+
 
 ### PostgreSQL and DoltgreSQL
 
@@ -271,7 +353,7 @@ PostgreSQL and DoltgreSQL, SQLite and DoltLite:
 
 * **Disk** — `du -sb` of the directory the engine keeps the database in, after the load has settled: for Dolt, after the commit and `dolt gc`, because Dolt writes through a journal and measuring before packing reports the write-ahead state rather than the stored one. A `du` that fails raises rather than returning zero.
 * **Time** — wall clock around the load itself, excluding the dump, the transform, and the measurement. Both engines are timed the same way, by `docker exec` into a container that is already up, so neither's timings contain container startup. That start costs a measured 0.24 s, and used to be paid twice per Dolt load and not at all by MySQL.
-* **Repeats, where a repeat is affordable.** Each unit runs up to three times and the median of every sample is kept, until it has spent its repeat budget; after that it is a single sample. Of the units recorded so far, 105 of 105 were measured once. Across the repeated ones the spread is [not measured]% median and [not measured]% worst for size, and [not measured]% median and [not measured]% worst for time. The pairs' units are single samples, each measured once with the same method.
+* **Repeats, where a repeat is affordable.** Each unit runs up to three times and the median of every sample is kept, until it has spent its repeat budget; after that it is a single sample. Of the units recorded so far, 168 of 168 were measured once. Across the repeated ones the spread is [not measured]% median and [not measured]% worst for size, and [not measured]% median and [not measured]% worst for time. The pairs' units are single samples, each measured once with the same method.
 * **Every load ends settled before it is sized**, and the settle step is timed separately from the load: Dolt commits and runs `dolt gc`; DoltgreSQL runs `dolt_commit` and `dolt_gc()`; DoltLite runs `dolt_commit` and `VACUUM`; PostgreSQL runs `CHECKPOINT`; SQLite and MySQL need nothing. A settle step that fails is kept and marked -- the store is reported at the working footprint of the load, not hidden and not loaded again to meet the same limit.
 * **Correctness, before any size is recorded** — every table counted with `COUNT(*)` on both sides, and every index compared by definition. A load short in any table is recorded as a failure, not as a small number.
 

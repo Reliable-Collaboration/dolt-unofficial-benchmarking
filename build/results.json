@@ -19,6 +19,15 @@
         "stats_bytes": 22532,
         "total_seconds": 4131.7
       },
+      "rowcommit_inline": {
+        "disk_bytes": 16077886132,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 8547.3,
+        "settle_seconds": 494.6,
+        "stats_bytes": 22533,
+        "total_seconds": 9041.9
+      },
       "rowinsert": {
         "disk_bytes": 51510235,
         "engine_version": "2.4.0",
@@ -27,14 +36,27 @@
         "settle_seconds": 9.6,
         "stats_bytes": 22529,
         "total_seconds": 1241.7
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 51555095,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 1614.5,
+        "settle_seconds": 16.4,
+        "stats_bytes": 22529,
+        "total_seconds": 1630.9
       }
     },
     "mysql_disk_bytes": 352178176,
     "mysql_load_seconds": 11.2,
     "mysql_rowwise_bytes": 326094848,
+    "mysql_rowwise_bytes_inline": 352178176,
     "mysql_rowwise_seconds": 221.5,
+    "mysql_rowwise_seconds_inline": 215.2,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -58,6 +80,15 @@
         "stats_bytes": 22532,
         "total_seconds": 11.7
       },
+      "rowcommit_inline": {
+        "disk_bytes": 38969314,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 12.3,
+        "settle_seconds": 1.7,
+        "stats_bytes": 22535,
+        "total_seconds": 14.0
+      },
       "rowinsert": {
         "disk_bytes": 1056155,
         "engine_version": "2.4.0",
@@ -66,14 +97,27 @@
         "settle_seconds": 0.3,
         "stats_bytes": 22532,
         "total_seconds": 4.9
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 1056135,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 5.1,
+        "settle_seconds": 0.3,
+        "stats_bytes": 22532,
+        "total_seconds": 5.4
       }
     },
     "mysql_disk_bytes": 13094912,
     "mysql_load_seconds": 0.4,
     "mysql_rowwise_bytes": 12079104,
+    "mysql_rowwise_bytes_inline": 13094912,
     "mysql_rowwise_seconds": 2.2,
+    "mysql_rowwise_seconds_inline": 1.6,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -97,6 +141,15 @@
         "stats_bytes": 22532,
         "total_seconds": 645.5
       },
+      "rowcommit_inline": {
+        "disk_bytes": 11189173965,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 865.4,
+        "settle_seconds": 282.2,
+        "stats_bytes": 22533,
+        "total_seconds": 1147.6
+      },
       "rowinsert": {
         "disk_bytes": 30221105,
         "engine_version": "2.4.0",
@@ -105,14 +158,27 @@
         "settle_seconds": 3.6,
         "stats_bytes": 22532,
         "total_seconds": 297.3
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 30251628,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 537.5,
+        "settle_seconds": 10.1,
+        "stats_bytes": 22532,
+        "total_seconds": 547.6
       }
     },
     "mysql_disk_bytes": 88231936,
     "mysql_load_seconds": 6.5,
     "mysql_rowwise_bytes": 75649024,
+    "mysql_rowwise_bytes_inline": 88231936,
     "mysql_rowwise_seconds": 72.8,
+    "mysql_rowwise_seconds_inline": 80.5,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -136,6 +202,15 @@
         "stats_bytes": 22532,
         "total_seconds": 39.5
       },
+      "rowcommit_inline": {
+        "disk_bytes": 119610357,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 46.4,
+        "settle_seconds": 4.6,
+        "stats_bytes": 22532,
+        "total_seconds": 51.0
+      },
       "rowinsert": {
         "disk_bytes": 629745,
         "engine_version": "2.4.0",
@@ -144,14 +219,27 @@
         "settle_seconds": 0.4,
         "stats_bytes": 22533,
         "total_seconds": 15.5
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 629744,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 17.2,
+        "settle_seconds": 0.5,
+        "stats_bytes": 22532,
+        "total_seconds": 17.7
       }
     },
     "mysql_disk_bytes": 2838528,
     "mysql_load_seconds": 0.3,
     "mysql_rowwise_bytes": 2740224,
+    "mysql_rowwise_bytes_inline": 2838528,
     "mysql_rowwise_seconds": 4.2,
+    "mysql_rowwise_seconds_inline": 4.3,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -175,6 +263,15 @@
         "stats_bytes": 22532,
         "total_seconds": 1923.2
       },
+      "rowcommit_inline": {
+        "disk_bytes": 11978416086,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 2036.9,
+        "settle_seconds": 377.7,
+        "stats_bytes": 22532,
+        "total_seconds": 2414.6
+      },
       "rowinsert": {
         "disk_bytes": 41128717,
         "engine_version": "2.4.0",
@@ -183,14 +280,27 @@
         "settle_seconds": 7.8,
         "stats_bytes": 22532,
         "total_seconds": 710.2
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 41219418,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 896.0,
+        "settle_seconds": 13.9,
+        "stats_bytes": 22533,
+        "total_seconds": 909.9
       }
     },
     "mysql_disk_bytes": 163844096,
     "mysql_load_seconds": 9.1,
     "mysql_rowwise_bytes": 141824000,
+    "mysql_rowwise_bytes_inline": 163844096,
     "mysql_rowwise_seconds": 197.2,
+    "mysql_rowwise_seconds_inline": 205.7,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -214,6 +324,15 @@
         "stats_bytes": 22533,
         "total_seconds": 417.0
       },
+      "rowcommit_inline": {
+        "disk_bytes": 3516923946,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 455.6,
+        "settle_seconds": 87.8,
+        "stats_bytes": 22531,
+        "total_seconds": 543.4
+      },
       "rowinsert": {
         "disk_bytes": 12977570,
         "engine_version": "2.4.0",
@@ -222,14 +341,27 @@
         "settle_seconds": 2.3,
         "stats_bytes": 22535,
         "total_seconds": 161.4
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 12520047,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 206.3,
+        "settle_seconds": 3.5,
+        "stats_bytes": 22536,
+        "total_seconds": 209.8
       }
     },
     "mysql_disk_bytes": 63229952,
     "mysql_load_seconds": 1.8,
     "mysql_rowwise_bytes": 52432896,
+    "mysql_rowwise_bytes_inline": 63016960,
     "mysql_rowwise_seconds": 44.9,
+    "mysql_rowwise_seconds_inline": 45.4,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -253,6 +385,15 @@
         "stats_bytes": 22533,
         "total_seconds": 11738.2
       },
+      "rowcommit_inline": {
+        "disk_bytes": 73886184742,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 12130.1,
+        "settle_seconds": 703.1,
+        "stats_bytes": 22532,
+        "total_seconds": 12833.2
+      },
       "rowinsert": {
         "disk_bytes": 45655974,
         "engine_version": "2.4.0",
@@ -261,14 +402,27 @@
         "settle_seconds": 2.9,
         "stats_bytes": 22535,
         "total_seconds": 3834.8
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 43031858,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 3926.6,
+        "settle_seconds": 3.6,
+        "stats_bytes": 22532,
+        "total_seconds": 3930.2
       }
     },
     "mysql_disk_bytes": 186912768,
     "mysql_load_seconds": 21.3,
     "mysql_rowwise_bytes": 184815616,
+    "mysql_rowwise_bytes_inline": 186912768,
     "mysql_rowwise_seconds": 979.9,
+    "mysql_rowwise_seconds_inline": 981.5,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -292,6 +446,15 @@
         "stats_bytes": 22532,
         "total_seconds": 166.4
       },
+      "rowcommit_inline": {
+        "disk_bytes": 6284566153,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 313.2,
+        "settle_seconds": 169.1,
+        "stats_bytes": 22535,
+        "total_seconds": 482.3
+      },
       "rowinsert": {
         "disk_bytes": 40449129,
         "engine_version": "2.4.0",
@@ -300,14 +463,27 @@
         "settle_seconds": 2.2,
         "stats_bytes": 22533,
         "total_seconds": 103.4
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 35768270,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 227.6,
+        "settle_seconds": 5.7,
+        "stats_bytes": 22531,
+        "total_seconds": 233.3
       }
     },
     "mysql_disk_bytes": 102993920,
     "mysql_load_seconds": 2.8,
     "mysql_rowwise_bytes": 69439488,
+    "mysql_rowwise_bytes_inline": 140742656,
     "mysql_rowwise_seconds": 17.1,
+    "mysql_rowwise_seconds_inline": 23.5,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -331,6 +507,15 @@
         "stats_bytes": 22531,
         "total_seconds": 1.5
       },
+      "rowcommit_inline": {
+        "disk_bytes": 809417,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 1.2,
+        "settle_seconds": 0.3,
+        "stats_bytes": 22545,
+        "total_seconds": 1.5
+      },
       "rowinsert": {
         "disk_bytes": 38590,
         "engine_version": "2.4.0",
@@ -339,14 +524,27 @@
         "settle_seconds": 0.3,
         "stats_bytes": 22537,
         "total_seconds": 0.7
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 38591,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 0.4,
+        "settle_seconds": 0.2,
+        "stats_bytes": 22532,
+        "total_seconds": 0.6
       }
     },
     "mysql_disk_bytes": 380928,
     "mysql_load_seconds": 0.1,
     "mysql_rowwise_bytes": 380928,
+    "mysql_rowwise_bytes_inline": 380928,
     "mysql_rowwise_seconds": 0.2,
+    "mysql_rowwise_seconds_inline": 0.2,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -370,6 +568,15 @@
         "stats_bytes": 22532,
         "total_seconds": 2129.2
       },
+      "rowcommit_inline": {
+        "disk_bytes": 9441792606,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 2063.9,
+        "settle_seconds": 282.2,
+        "stats_bytes": 22532,
+        "total_seconds": 2346.1
+      },
       "rowinsert": {
         "disk_bytes": 27539380,
         "engine_version": "2.4.0",
@@ -378,14 +585,27 @@
         "settle_seconds": 7.1,
         "stats_bytes": 22532,
         "total_seconds": 777.4
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 27576199,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 869.9,
+        "settle_seconds": 10.6,
+        "stats_bytes": 22534,
+        "total_seconds": 880.5
       }
     },
     "mysql_disk_bytes": 201166848,
     "mysql_load_seconds": 11.1,
     "mysql_rowwise_bytes": 187551744,
+    "mysql_rowwise_bytes_inline": 201166848,
     "mysql_rowwise_seconds": 188.3,
+    "mysql_rowwise_seconds_inline": 190.8,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -409,6 +629,15 @@
         "stats_bytes": 22532,
         "total_seconds": 10.2
       },
+      "rowcommit_inline": {
+        "disk_bytes": 27541521,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 12.5,
+        "settle_seconds": 1.4,
+        "stats_bytes": 22532,
+        "total_seconds": 13.9
+      },
       "rowinsert": {
         "disk_bytes": 530917,
         "engine_version": "2.4.0",
@@ -417,14 +646,27 @@
         "settle_seconds": 0.3,
         "stats_bytes": 22536,
         "total_seconds": 4.2
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 530914,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 5.2,
+        "settle_seconds": 0.3,
+        "stats_bytes": 22532,
+        "total_seconds": 5.5
       }
     },
     "mysql_disk_bytes": 2756608,
     "mysql_load_seconds": 0.4,
     "mysql_rowwise_bytes": 2805760,
+    "mysql_rowwise_bytes_inline": 2756608,
     "mysql_rowwise_seconds": 1.7,
+    "mysql_rowwise_seconds_inline": 1.3,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -448,6 +690,15 @@
         "stats_bytes": 22533,
         "total_seconds": 112.4
       },
+      "rowcommit_inline": {
+        "disk_bytes": 962900044,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 126.8,
+        "settle_seconds": 24.7,
+        "stats_bytes": 22532,
+        "total_seconds": 151.5
+      },
       "rowinsert": {
         "disk_bytes": 3137472,
         "engine_version": "2.4.0",
@@ -456,14 +707,27 @@
         "settle_seconds": 0.9,
         "stats_bytes": 22537,
         "total_seconds": 53.9
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 3173207,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 73.2,
+        "settle_seconds": 1.4,
+        "stats_bytes": 22531,
+        "total_seconds": 74.6
       }
     },
     "mysql_disk_bytes": 20058112,
     "mysql_load_seconds": 1.1,
     "mysql_rowwise_bytes": 16912384,
+    "mysql_rowwise_bytes_inline": 20058112,
     "mysql_rowwise_seconds": 13.1,
+    "mysql_rowwise_seconds_inline": 14.0,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -487,6 +751,15 @@
         "stats_bytes": 22534,
         "total_seconds": 21.2
       },
+      "rowcommit_inline": {
+        "disk_bytes": 68197692,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 22.7,
+        "settle_seconds": 2.8,
+        "stats_bytes": 22532,
+        "total_seconds": 25.5
+      },
       "rowinsert": {
         "disk_bytes": 467029,
         "engine_version": "2.4.0",
@@ -495,14 +768,27 @@
         "settle_seconds": 0.3,
         "stats_bytes": 22532,
         "total_seconds": 8.3
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 467239,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 9.8,
+        "settle_seconds": 0.4,
+        "stats_bytes": 22532,
+        "total_seconds": 10.2
       }
     },
     "mysql_disk_bytes": 1921024,
     "mysql_load_seconds": 0.3,
     "mysql_rowwise_bytes": 1871872,
+    "mysql_rowwise_bytes_inline": 1921024,
     "mysql_rowwise_seconds": 2.5,
+    "mysql_rowwise_seconds_inline": 2.5,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -526,6 +812,15 @@
         "stats_bytes": 22532,
         "total_seconds": 1.3
       },
+      "rowcommit_inline": {
+        "disk_bytes": 858049,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 1.1,
+        "settle_seconds": 0.3,
+        "stats_bytes": 22532,
+        "total_seconds": 1.4
+      },
       "rowinsert": {
         "disk_bytes": 63599,
         "engine_version": "2.4.0",
@@ -534,14 +829,27 @@
         "settle_seconds": 0.2,
         "stats_bytes": 22531,
         "total_seconds": 0.6
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 64297,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 0.4,
+        "settle_seconds": 0.3,
+        "stats_bytes": 22536,
+        "total_seconds": 0.7
       }
     },
     "mysql_disk_bytes": 1134592,
     "mysql_load_seconds": 0.2,
     "mysql_rowwise_bytes": 1134592,
+    "mysql_rowwise_bytes_inline": 1134592,
     "mysql_rowwise_seconds": 0.4,
+    "mysql_rowwise_seconds_inline": 0.2,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -565,6 +873,15 @@
         "stats_bytes": 22532,
         "total_seconds": 33.8
       },
+      "rowcommit_inline": {
+        "disk_bytes": 895876053,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 62.6,
+        "settle_seconds": 23.4,
+        "stats_bytes": 22532,
+        "total_seconds": 86.0
+      },
       "rowinsert": {
         "disk_bytes": 5299375,
         "engine_version": "2.4.0",
@@ -573,14 +890,27 @@
         "settle_seconds": 0.7,
         "stats_bytes": 22532,
         "total_seconds": 16.4
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 4376649,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 39.5,
+        "settle_seconds": 1.3,
+        "stats_bytes": 22532,
+        "total_seconds": 40.8
       }
     },
     "mysql_disk_bytes": 29036544,
     "mysql_load_seconds": 0.6,
     "mysql_rowwise_bytes": 20500480,
+    "mysql_rowwise_bytes_inline": 30019584,
     "mysql_rowwise_seconds": 3.9,
+    "mysql_rowwise_seconds_inline": 3.9,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -604,6 +934,15 @@
         "stats_bytes": 22530,
         "total_seconds": 3265.7
       },
+      "rowcommit_inline": {
+        "disk_bytes": 60098348986,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 4457.8,
+        "settle_seconds": 1424.4,
+        "stats_bytes": 22534,
+        "total_seconds": 5882.2
+      },
       "rowinsert": {
         "disk_bytes": 150335599,
         "engine_version": "2.4.0",
@@ -612,14 +951,27 @@
         "settle_seconds": 13.8,
         "stats_bytes": 22532,
         "total_seconds": 1196.3
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 134843931,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 2088.9,
+        "settle_seconds": 7.8,
+        "stats_bytes": 22532,
+        "total_seconds": 2096.7
       }
     },
     "mysql_disk_bytes": 230854656,
     "mysql_load_seconds": 15.1,
     "mysql_rowwise_bytes": 197529600,
+    "mysql_rowwise_bytes_inline": 230854656,
     "mysql_rowwise_seconds": 274.2,
+    "mysql_rowwise_seconds_inline": 298.3,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -643,6 +995,15 @@
         "stats_bytes": 22532,
         "total_seconds": 1.5
       },
+      "rowcommit_inline": {
+        "disk_bytes": 787865,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 1.3,
+        "settle_seconds": 0.3,
+        "stats_bytes": 22535,
+        "total_seconds": 1.6
+      },
       "rowinsert": {
         "disk_bytes": 78870,
         "engine_version": "2.4.0",
@@ -651,14 +1012,27 @@
         "settle_seconds": 0.2,
         "stats_bytes": 22536,
         "total_seconds": 0.6
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 78866,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 0.4,
+        "settle_seconds": 0.3,
+        "stats_bytes": 22532,
+        "total_seconds": 0.7
       }
     },
     "mysql_disk_bytes": 1527808,
     "mysql_load_seconds": 0.2,
     "mysql_rowwise_bytes": 1527808,
+    "mysql_rowwise_bytes_inline": 1527808,
     "mysql_rowwise_seconds": 0.4,
+    "mysql_rowwise_seconds_inline": 0.3,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -682,6 +1056,15 @@
         "stats_bytes": 22534,
         "total_seconds": 156.1
       },
+      "rowcommit_inline": {
+        "disk_bytes": 717607383,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 221.2,
+        "settle_seconds": 21.5,
+        "stats_bytes": 22532,
+        "total_seconds": 242.7
+      },
       "rowinsert": {
         "disk_bytes": 2266180,
         "engine_version": "2.4.0",
@@ -690,14 +1073,27 @@
         "settle_seconds": 0.9,
         "stats_bytes": 22536,
         "total_seconds": 62.2
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 2089594,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 80.7,
+        "settle_seconds": 1.3,
+        "stats_bytes": 22532,
+        "total_seconds": 82.0
       }
     },
     "mysql_disk_bytes": 25284608,
     "mysql_load_seconds": 0.9,
     "mysql_rowwise_bytes": 23384064,
+    "mysql_rowwise_bytes_inline": 25284608,
     "mysql_rowwise_seconds": 12.7,
+    "mysql_rowwise_seconds_inline": 13.0,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -721,6 +1117,15 @@
         "stats_bytes": 22535,
         "total_seconds": 5.6
       },
+      "rowcommit_inline": {
+        "disk_bytes": 8698759,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 5.0,
+        "settle_seconds": 0.6,
+        "stats_bytes": 22534,
+        "total_seconds": 5.6
+      },
       "rowinsert": {
         "disk_bytes": 168208,
         "engine_version": "2.4.0",
@@ -729,14 +1134,27 @@
         "settle_seconds": 0.3,
         "stats_bytes": 22532,
         "total_seconds": 2.5
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 168203,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 2.2,
+        "settle_seconds": 0.3,
+        "stats_bytes": 22536,
+        "total_seconds": 2.5
       }
     },
     "mysql_disk_bytes": 659456,
     "mysql_load_seconds": 0.1,
     "mysql_rowwise_bytes": 659456,
+    "mysql_rowwise_bytes_inline": 659456,
     "mysql_rowwise_seconds": 0.7,
+    "mysql_rowwise_seconds_inline": 0.7,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -760,6 +1178,15 @@
         "stats_bytes": 22531,
         "total_seconds": 174.9
       },
+      "rowcommit_inline": {
+        "disk_bytes": 2082749039,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 218.3,
+        "settle_seconds": 58.3,
+        "stats_bytes": 22536,
+        "total_seconds": 276.6
+      },
       "rowinsert": {
         "disk_bytes": 16865174,
         "engine_version": "2.4.0",
@@ -768,14 +1195,27 @@
         "settle_seconds": 1.5,
         "stats_bytes": 22534,
         "total_seconds": 78.3
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 14624046,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 119.1,
+        "settle_seconds": 2.3,
+        "stats_bytes": 22535,
+        "total_seconds": 121.4
       }
     },
     "mysql_disk_bytes": 87707648,
     "mysql_load_seconds": 1.5,
     "mysql_rowwise_bytes": 77221888,
+    "mysql_rowwise_bytes_inline": 93999104,
     "mysql_rowwise_seconds": 17.9,
+    "mysql_rowwise_seconds_inline": 18.4,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   },
@@ -799,6 +1239,15 @@
         "stats_bytes": 22535,
         "total_seconds": 3266.5
       },
+      "rowcommit_inline": {
+        "disk_bytes": 30514332998,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 3476.3,
+        "settle_seconds": 995.8,
+        "stats_bytes": 22532,
+        "total_seconds": 4472.1
+      },
       "rowinsert": {
         "disk_bytes": 130862080,
         "engine_version": "2.4.0",
@@ -807,14 +1256,27 @@
         "settle_seconds": 14.6,
         "stats_bytes": 22532,
         "total_seconds": 1288.3
+      },
+      "rowinsert_inline": {
+        "disk_bytes": 129787136,
+        "engine_version": "2.4.0",
+        "indexes_deferred": false,
+        "load_seconds": 1753.2,
+        "settle_seconds": 30.7,
+        "stats_bytes": 22532,
+        "total_seconds": 1783.9
       }
     },
     "mysql_disk_bytes": 329510912,
     "mysql_load_seconds": 25.7,
     "mysql_rowwise_bytes": 246673408,
+    "mysql_rowwise_bytes_inline": 363065344,
     "mysql_rowwise_seconds": 322.0,
+    "mysql_rowwise_seconds_inline": 334.9,
     "mysql_rowwise_spread": {},
+    "mysql_rowwise_spread_inline": {},
     "mysql_rowwise_version": "9.7.2",
+    "mysql_rowwise_version_inline": "9.7.2",
     "mysql_spread": {},
     "mysql_version": "9.7.2"
   }

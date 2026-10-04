@@ -293,7 +293,7 @@ Everything here that weakens the result, found by auditing the method against th
 
 **The expensive loads are single samples.** Repeats stop once a unit has spent its budget, so the slow loads on the large databases are one run each. A figure or table shows a spread only where there is one to show.
 
-**The machine is not dedicated.** Besides the source MySQL it reads the dumps from, the run shares the host with other work: 4 other containers were running when the machine was recorded, with 22.8 GiB of 30.2 GiB memory available. The timings were taken on a shared host, so read small differences in time as no difference. It is realistic, but it is not a benchmark rig.
+**The machine is not dedicated.** Besides the source MySQL it reads the dumps from, the run shares the host with other work: 4 other containers were running when the machine was recorded, with 22.9 GiB of 30.2 GiB memory available. The timings were taken on a shared host, so read small differences in time as no difference. It is realistic, but it is not a benchmark rig.
 
 **Dolt is not given quite the same schema.** The transform removes what Dolt cannot take: cross-database foreign keys and views, and stored routines, which it does not implement. All of it makes Dolt's job slightly smaller; none of it touches a row. The cross-database views are worth singling out because the two engines *disagreed* rather than both failing — MySQL refused them and Dolt stored them, and dropping them is what keeps "the same file" true.
 
@@ -352,14 +352,6 @@ The following are not measured yet, and appear in this document as `[not measure
 * `pairs.pg.oneshot_ratio` — from results.json:*.pairs.pg.doltgres_oneshot.disk_bytes over postgres (absent)
 * `pairs.pg.oneshot_time_ratio` — from results.json:*.pairs.pg.doltgres_oneshot.total_seconds over postgres.load_seconds (absent)
 * `pairs.pg.rowcommit_ratio` — from results.json:*.pairs.pg.doltgres_rowcommit.disk_bytes over postgres (absent)
-* `rowcommit_inline.bytes` — from results.json:*.modes.rowcommit_inline (absent)
-* `rowcommit_inline.databases` — from results.json:*.modes.rowcommit_inline (absent)
-* `rowcommit_inline.ratio` — from results.json:*.modes.rowcommit_inline (absent)
-* `rowcommit_inline.seconds` — from results.json:*.modes.rowcommit_inline (absent)
-* `rowinsert_inline.bytes` — from results.json:*.modes.rowinsert_inline (absent)
-* `rowinsert_inline.databases` — from results.json:*.modes.rowinsert_inline (absent)
-* `rowinsert_inline.ratio` — from results.json:*.modes.rowinsert_inline (absent)
-* `rowinsert_inline.seconds` — from results.json:*.modes.rowinsert_inline (absent)
 
 ## The machine
 
@@ -370,7 +362,7 @@ The following are not measured yet, and appear in this document as `[not measure
 | Disk | 3.6 TiB ext4 |
 | Kernel | 7.0.0-34-generic |
 | Containers | Podman 5.7.0, rootless, through Docker's client 29.8.2; storage driver `overlay` |
-| Shared with | 4 other containers running at capture, belonging to other work on the host; 22.8 GiB memory available |
+| Shared with | 4 other containers running at capture, belonging to other work on the host; 22.9 GiB memory available |
 | MySQL | `mysql@sha256:e2bde46db6563855d7177adb5f0b57b9dc663f5a20927a90f4259d3312068497` — /usr/sbin/mysqld  Ver 9.7.2 for Linux on x86_64 (MySQL Community Server - GPL), named by image digest |
 | Dolt | `dolthub/dolt-sql-server` — dolt version 2.4.0, named by image digest |
 | PostgreSQL | `postgres` — postgres (PostgreSQL) 18.6 (Debian 18.6-1.pgdg12+2), named by image digest |

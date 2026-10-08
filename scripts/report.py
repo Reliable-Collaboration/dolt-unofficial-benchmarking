@@ -71,7 +71,11 @@ def rows(results):
                                          "only_mysql": v.get("indexes_only_mysql") or [],
                                          "only_dolt": v.get("indexes_only_dolt") or []}
                                      for m, v in modes.items()
-                                     if isinstance(v, dict) and v.get("indexes_dolt") is not None}))
+                                     if isinstance(v, dict) and v.get("indexes_dolt") is not None},
+                        # a store `dolt gc` could not collect has a working footprint, not a size:
+                        # it is shown marked † and left out of every total (scripts/collect.py)
+                        footprint={m: v.get("footprint_bytes") for m, v in modes.items()
+                                   if isinstance(v, dict) and v.get("settled") is False}))
     return out
 
 
@@ -145,10 +149,15 @@ def policy_section(items):
         L.append(f"| **{len(have)} databases** | **{human(ta)}** | **{human(tb)}** "
                  f"| **{100.0 * (tb - ta) / ta:+.1f}%** | **{secs(sa)}** | **{secs(sb)}** "
                  f"| **{(f'{100.0 * (sb - sa) / sa:+.1f}%') if sa else '—'}** |")
-        if len(have) < len(items):
-            missing = sorted(i["db"] for i in items if i not in have)
-            L.append(f"\n*{len(items) - len(have)} database(s) not yet measured under both "
+        uncollected = sorted(i["db"] for i in items if i not in have and i["footprint"].get(KEY_MODE.get(db_b, ""))
+                             or i not in have and i["footprint"].get(KEY_MODE.get(in_b, "")))
+        missing = sorted(i["db"] for i in items if i not in have and i["db"] not in uncollected)
+        if missing:
+            L.append(f"\n*{len(missing)} database(s) not yet measured under both "
                      "policies: " + ", ".join(f"`{d}`" for d in missing) + ".*")
+        if uncollected:
+            L.append(f"\n*Left out because `dolt gc` did not complete on the store under one policy or both, so "
+                     "it has no collected size: " + ", ".join(f"`{d}`" for d in uncollected) + ".*")
         L.append("")
     if not any_data:
         return ""
@@ -159,6 +168,27 @@ def secs(v):
     if not v:
         return "—"
     return duration(v)
+
+
+UNSETTLED = " †"
+KEY_MODE = {"dolt": "oneshot", "rowinsert": "rowinsert", "rowcommit": "rowcommit",
+            "rowinsert_inline": "rowinsert_inline", "rowcommit_inline": "rowcommit_inline"}
+
+
+def dcell(i, key):
+    """A Dolt cell: the size against MySQL, or the uncollected footprint marked †."""
+    if i[key]:
+        return cell(i[key], i["mysql"])
+    fp = i["footprint"].get(KEY_MODE[key])
+    return f"{human(fp)}{UNSETTLED}" if fp else "—"
+
+
+def unsettled_note(items, keys=tuple(KEY_MODE)):
+    """The sentence under a table that has a † in it, naming every store it marks."""
+    hit = sorted(f"`{i['db']}` ({MODE_TITLES[KEY_MODE[k]].replace('`', '')})"
+                 for i in items for k in keys if i["footprint"].get(KEY_MODE[k]))
+    return ("*† `dolt gc` did not complete on this store, so the figure is its working footprint after the load, "
+            "not a collected size, and it is left out of every total and ratio: " + ", ".join(hit) + ".*") if hit else ""
 
 
 def cell(size, mysql):
@@ -239,9 +269,9 @@ def summary_table(items):
         rows.append([f"`{i['db']}`", f"{i['rows']:,}",
                      f"{human(i['mysql'])}<br>{secs(i['mysql_seconds'])}",
                      f"{cell(i['mysql_rowwise_bytes'], i['mysql'])}<br>{secs(i['mysql_rowwise_seconds'])}",
-                     f"{cell(i['dolt'], i['mysql'])}<br>{secs(i['dolt_seconds'])}",
-                     f"{cell(i['rowinsert'], i['mysql'])}<br>{secs(i['rowinsert_seconds'])}",
-                     f"{cell(i['rowcommit'], i['mysql'])}<br>{secs(i['rowcommit_seconds'])}"])
+                     f"{dcell(i, 'dolt')}<br>{secs(i['dolt_seconds'])}",
+                     f"{dcell(i, 'rowinsert')}<br>{secs(i['rowinsert_seconds'])}",
+                     f"{dcell(i, 'rowcommit')}<br>{secs(i['rowcommit_seconds'])}"])
     # totals over the databases where every test has a result, so the row is one population
     full = [i for i in items if all(i[k] for k in ("mysql", "mysql_rowwise_bytes", "dolt",
                                                    "rowinsert", "rowcommit"))]
@@ -263,9 +293,12 @@ def summary_table(items):
                                                                         ("5. 1 commit/row", TINT["history"])], TINT["commit"])], rows))
     if len(full) < len(items):
         missing = sorted(i["db"] for i in items if i not in full)
-        L.append(f"\n*Each cell is disk then time. {len(items) - len(full)} database(s) do not yet "
-                 f"have every test and are excluded from the totals row: "
+        L.append(f"\n*Each cell is disk then time. {len(items) - len(full)} database(s) do not "
+                 f"have a size for every test and are excluded from the totals row: "
                  + ", ".join(f"`{d}`" for d in missing) + ".*")
+    note = unsettled_note(items, ("dolt", "rowinsert", "rowcommit"))
+    if note:
+        L.append("\n" + note)
     return "\n".join(L)
 
 
@@ -406,15 +439,18 @@ def report(items):
           "|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
     for i in sorted(items, key=lambda x: -x["mysql"]):
         L.append(f"| `{i['db']}` | {i['tables']} | {i['rows']:,} | {human(i['dump'])} "
-                 f"| {human(i['logical'])} | {human(i['mysql'])} | {cell(i['dolt'], i['mysql'])} "
-                 f"| {cell(i['rowinsert'], i['mysql'])} | {cell(i['rowcommit'], i['mysql'])} |")
+                 f"| {human(i['logical'])} | {human(i['mysql'])} | {dcell(i, 'dolt')} "
+                 f"| {dcell(i, 'rowinsert')} | {dcell(i, 'rowcommit')} |")
     L.append(f"| **total** | {sum(i['tables'] for i in items)} | {sum(i['rows'] for i in items):,} "
              f"| {human(sum(i['dump'] for i in items))} | {human(sum(i['logical'] for i in items))} "
              f"| **{human(my)}** | **{human(do)}<br>{do / my:.2f}×** | | |")
+    note = unsettled_note(items, ("dolt", "rowinsert", "rowcommit"))
+    if note:
+        L += ["", note]
     L.append("")
 
-    missing_ri = [i["db"] for i in items if not i["rowinsert"]]
-    missing_rc = [i["db"] for i in items if not i["rowcommit"]]
+    missing_ri = [i["db"] for i in items if not i["rowinsert"] and not i["footprint"].get("rowinsert")]
+    missing_rc = [i["db"] for i in items if not i["rowcommit"] and not i["footprint"].get("rowcommit")]
     if missing_ri or missing_rc:
         L += ["### Coverage", "",
               "The extra loads are expensive, and where a cell is empty the load has not been run "

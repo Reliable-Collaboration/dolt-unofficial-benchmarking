@@ -15,11 +15,24 @@ SQL. Comparing Dolt against the image was comparing against a differently-built 
 import json, os, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import ROOT, current, human, load_results, save_results  # noqa: E402
+from common import ROOT, current, data_dir, human, load_results, save_results  # noqa: E402
 
 PROGRESS = os.path.join(ROOT, "build", "progress.json")
 # progress key -> where it lands in results.json
 MODE_OF = {"dolt_oneshot": "oneshot", "dolt_rowinsert": "rowinsert", "dolt_rowcommit": "rowcommit"}
+
+
+def collected(mode, db):
+    """Whether the Dolt store a unit left behind was garbage-collected, read from the store itself.
+
+    `dolt gc` moves everything reachable into the old generation, so a collected store has table
+    files or archives in `.dolt/noms/oldgen`, and a store whose gc never finished has an empty one
+    beside its whole chunk journal. This decides the units recorded before the runner read the
+    settle step's exit status (`settled` on the unit); None where the store is gone and cannot say."""
+    oldgen = os.path.join(data_dir(mode), db, db, ".dolt", "noms", "oldgen")
+    if not os.path.isdir(os.path.dirname(oldgen)):
+        return None
+    return any(f not in ("LOCK", "manifest") for f in (os.listdir(oldgen) if os.path.isdir(oldgen) else []))
 
 
 def main():
@@ -63,7 +76,19 @@ def main():
         elif phase in MODE_OF:
             m = entry.setdefault("modes", {}).setdefault(MODE_OF[phase] + suffix, {})
             m["engine_version"] = u.get("engine_version")
-            m["disk_bytes"] = u.get("bytes")
+            settled = u.get("settled")
+            if settled is None:
+                settled = collected(MODE_OF[phase] + suffix, db)
+            # an uncollected store has a working footprint, not a settled size, exactly as
+            # collect_pairs.py records the pairs' (the documents mark it † and leave it out of totals)
+            m["settled"] = settled is not False
+            m["disk_bytes"] = u.get("bytes") if m["settled"] else None
+            m["footprint_bytes"] = None if m["settled"] else u.get("bytes")
+            m["settle_error"] = None if m["settled"] else (
+                u.get("settle_error") or "`dolt gc` did not complete: the store's old generation is empty")
+            for k in ("commit_exit", "gc_exit", "settle_memory_anon_bytes", "settle_memory_total_bytes"):
+                if k in u:
+                    m[k] = u[k]
             m["stats_bytes"] = u.get("stats_bytes", 0)
             m["load_seconds"] = u.get("seconds")
             m["settle_seconds"] = u.get("settle_seconds")

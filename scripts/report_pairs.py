@@ -425,8 +425,10 @@ def size_cell(r, pair, shape):
     v, mark = measure_of(r, pair, shape, "bytes"), ""
     if pair != "dolt":
         u = ((r.get("pairs") or {}).get(pair) or {}).get(test_of(pair, shape)) or {}
-        if u.get("settled") is False and u.get("footprint_bytes"):
-            v, mark = u["footprint_bytes"], UNSETTLED
+    else:
+        u = ((r.get("modes") or {}).get(test_of(pair, shape).replace("dolt_", "")) or {}) if shape not in ("bulk", "rowwise") else {}
+    if u.get("settled") is False and u.get("footprint_bytes"):
+        v, mark = u["footprint_bytes"], UNSETTLED
     return v, mark
 
 

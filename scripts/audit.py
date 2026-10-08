@@ -261,6 +261,23 @@ def pair_settles_reported(a, results):
                 f"{parts[1]} {name}: its failed settle step is reported as unsettled", f"settled={got.get('settled')}")
 
 
+def dolt_settles_reported(a, results):
+    """A Dolt store `dolt gc` did not collect is reported with a footprint, not a size.
+
+    Judged from the store itself as well as from the unit's record, since the runner only reads the
+    settle step's exit status from release 3 on: a store left with an empty old generation was not
+    collected whatever its unit says (scripts/collect.py, `collected`)."""
+    from collect import collected
+    for db, entry in sorted(results.items()):
+        for mode, m in sorted((entry.get("modes") or {}).items()):
+            if not isinstance(m, dict) or not (m.get("disk_bytes") or m.get("footprint_bytes")):
+                continue
+            if collected(mode, db) is False:
+                a.check(m.get("settled") is False and not m.get("disk_bytes"),
+                        f"{db} {mode}: the uncollected Dolt store is reported as a footprint",
+                        f"settled={m.get('settled')}, disk_bytes={m.get('disk_bytes')}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--strict", action="store_true",
@@ -285,6 +302,7 @@ def main():
         dolt_matches_mysql(a, results)
         pairs_are_consistent(a, results)
         pair_settles_reported(a, results)
+        dolt_settles_reported(a, results)
     else:
         a.skip("size and parity invariants", "no build/results.json")
     transform_preserved_the_rows(a)

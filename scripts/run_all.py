@@ -432,6 +432,8 @@ TRACE_DIR = os.path.join(ROOT, "build", "trace")
 
 SAMPLER_FILE = "/tmp/doltsamples-mem"
 SAMPLER_SECONDS = 2
+SAMPLER_PID = SAMPLER_FILE + ".pid"
+SAMPLER_KILL = f"[ -s {SAMPLER_PID} ] && kill $(cat {SAMPLER_PID}) 2>/dev/null;"
 
 
 def cgroup(name):
@@ -453,13 +455,21 @@ def sampler_start():
     that decides whether a process is killed. `memory.peak` would be the natural source and is not
     usable here: the container is long-lived and shared across loads, so its high-water mark is
     whatever the largest earlier load reached, and the reset that would fix that is refused from
-    inside the container."""
-    run("docker", "exec", DOLT_HOST, "sh", "-c", f"rm -f {SAMPLER_FILE}; pkill -f 'memsampler' ; "
+    inside the container.
+
+    The loop's PID is kept in a file and the previous loop is stopped by it. It used to be stopped
+    with `pkill -f memsampler`, a pattern that also matched the shell issuing it, and the loops of
+    earlier loads were left running in the worker (2026-10-04)."""
+    run("docker", "exec", DOLT_HOST, "sh", "-c", f"{SAMPLER_KILL} rm -f {SAMPLER_FILE}; "
         f"(while :; do "
         f"a=$(awk '/^anon /{{print $2}}' /sys/fs/cgroup/memory.stat); "
         f"c=$(cat /sys/fs/cgroup/memory.current); "
         f"echo \"$a $c\" >> {SAMPLER_FILE}; sleep {SAMPLER_SECONDS}; done) "
-        f">/dev/null 2>&1 & echo memsampler")
+        f">/dev/null 2>&1 & echo $! > {SAMPLER_PID}")
+
+
+def sampler_stop():
+    run("docker", "exec", DOLT_HOST, "sh", "-c", f"{SAMPLER_KILL} rm -f {SAMPLER_PID}")
 
 
 def sampler_take():
@@ -579,13 +589,32 @@ def dolt_load(db, phase, indexes="deferred"):
     # tables modified and uncommitted. The rebuild belongs in the last commit, and a repository with
     # an uncommitted working set is not the thing being measured. `--allow-empty` covers the case
     # where there is nothing outstanding, which is what happens with the indexes left inline.
-    commit = ('dolt add -A && dolt commit --allow-empty --author '
-              '"megasamples <megasamples@localhost>" -m ')
-    final = (commit + '"rebuild deferred indexes" ; dolt gc' if phase == "dolt_rowcommit" else
-             commit + '"import from sql-megasamples" ; dolt gc')
+    #
+    # The commit and the collection are run, and judged, separately. They used to be one shell line,
+    # `... dolt commit ... ; dolt gc`, whose exit status nobody read: employees' per-row-commit loads
+    # were OOM-killed in `dolt gc` at 16 GiB and again at 18 GiB, the commit had landed, the rows
+    # checked, and both units were recorded as settled stores of 62 and 69 GiB that had never been
+    # collected (their chunk journal whole, the old generation empty). A store whose gc fails now has
+    # a footprint, not a size, as the pairs' runner already records it; the settle step is sampled
+    # for memory like the load, since it is where the largest store needed the most.
+    commit = ('dolt add -A && dolt commit --allow-empty --author "megasamples <megasamples@localhost>" -m '
+              + ('"rebuild deferred indexes"' if phase == "dolt_rowcommit" else '"import from sql-megasamples"'))
     started = time.time()
-    run("docker", "exec", "-w", dolt_repo(mode, db), DOLT_HOST, "sh", "-c", final)
+    sampler_start()
+    c = run("docker", "exec", "-w", dolt_repo(mode, db), DOLT_HOST, "sh", "-c", commit)
+    g = run("docker", "exec", "-w", dolt_repo(mode, db), DOLT_HOST, "dolt", "gc") if c.returncode == 0 else None
     settle_s = time.time() - started
+    settle_anon, settle_total = sampler_take()
+    sampler_stop()
+    outcome.update({"commit_exit": c.returncode, "gc_exit": g.returncode if g else None,
+                    "settled": c.returncode == 0 and g is not None and g.returncode == 0,
+                    "settle_memory_anon_bytes": settle_anon, "settle_memory_total_bytes": settle_total})
+    if not outcome["settled"]:
+        failed, what = (c, "the final commit") if c.returncode else (g, "`dolt gc`")
+        outcome["settle_error"] = (f"{what} exited {failed.returncode}"
+                                   + (" (killed: out of memory)" if failed.returncode == 137 else "")
+                                   + (": " + dolt_error_tail(failed)[:200] if dolt_error_tail(failed) else ""))
+        notes.append(outcome["settle_error"] + "; the size recorded is the uncollected footprint")
 
     size = helper("-c", f"du -sb {dolt_repo(mode, db)}; "
                         f"du -sb {dolt_repo(mode, db)}/.dolt/stats 2>/dev/null || echo 0",

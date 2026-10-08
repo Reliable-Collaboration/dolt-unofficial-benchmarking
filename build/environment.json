@@ -2,7 +2,7 @@
   "docker": {
     "client": "29.8.2",
     "engine": "Podman",
-    "memory_available_at_capture": "18.0 GiB",
+    "memory_available_at_capture": "14.6 GiB",
     "other_containers_at_capture": 4,
     "rootless": true,
     "storage_driver": "overlay",
@@ -30,7 +30,7 @@
   "host": {
     "cpu": "AMD Ryzen Threadripper 3970X 32-Core Processor",
     "cpu_threads": 64,
-    "disk_free_at_capture": "2.7 TiB",
+    "disk_free_at_capture": "2.4 TiB",
     "disk_total": "3.6 TiB",
     "filesystem": "ext4",
     "kernel": "7.0.0-34-generic",

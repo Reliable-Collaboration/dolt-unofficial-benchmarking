@@ -133,7 +133,7 @@ Every number in every document is generated from `build/`. Nothing is typed by h
 
 ## The same question, twice more: DoltgreSQL and DoltLite
 
-The corpus runs on PostgreSQL and SQLite as well, and DoltHub ships a versioned engine for each, so the five tests were run again for the PostgreSQL/DoltgreSQL and SQLite/DoltLite pairs (21 and [not measured] databases with the one-commit load on both engines so far). What was learned before a row was loaded is in `knowledge/` -- every fact about the two engines with the source it was read in or the command that produced it -- and the short version is this.
+The corpus runs on PostgreSQL and SQLite as well, and DoltHub ships a versioned engine for each, so the five tests were run again for the PostgreSQL/DoltgreSQL and SQLite/DoltLite pairs (21 and 21 databases with the one-commit load on both engines so far). What was learned before a row was loaded is in `knowledge/` -- every fact about the two engines with the source it was read in or the command that produced it -- and the short version is this.
 
 **One version per result set**: DoltgreSQL 1.4.0, named by image digest, and DoltLite v0.50.14, named by the checksums of its packages (`versions.json`). Neither moves on its own; when one does, every unit of that engine is measured again, so everything below describes exactly those versions.
 

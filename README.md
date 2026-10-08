@@ -221,30 +221,80 @@ Memory is the constraint people meet first, and there are separate answers for o
 
 For each database and each Dolt engine, the smallest container memory limit at which the engine opened the stored database and counted its largest table, for the store with one commit and for the store with one commit per row. The limits go up a ladder of fixed rungs, so each value is an upper bound one rung wide. The other stored shapes, and what the loads themselves peaked at, are in [REPORT.md](REPORT.md#memory).
 
-*No memory study yet (`make memory-pairs`, `scripts/memory_profile.py`).*
+<table>
+<thead>
+<tr><th rowspan="2" align="left">database</th><th rowspan="2" align="right" nowrap>rows</th><th colspan="2" align="center" style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">Dolt</th><th colspan="2" align="center" style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">DoltgreSQL</th><th colspan="2" align="center" style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">DoltLite</th></tr>
+<tr><th align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">one commit</th><th align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">one commit per row</th><th align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">one commit</th><th align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">one commit per row</th><th align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">one commit</th><th align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">one commit per row</th></tr>
+</thead>
+<tbody>
+<tr><td align="left"><code>adventureworks</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">384.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">384.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>adventureworks_lt</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>chicago_crimes</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">192.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">192.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>chinook</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>contoso</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">384.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">96.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">384.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>dvdstore</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">128.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">128.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>employees</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">12.0 GiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">2.0 GiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>enron</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>jaffle_shop</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>lahman</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">384.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">96.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">384.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>northwind</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>nyc_taxi</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>oracle_co</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>oracle_hr</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>oracle_oe</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>oracle_sh</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">192.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">768.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">192.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">768.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>pubs</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>sakila</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>smallsets</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>stackexchange_beer</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">96.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+<tr><td align="left"><code>wikipedia_simple</code></td><td align="right" nowrap>0</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">512.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">768.0 MiB</td><td align="right" nowrap style="background:#eef3f8;color:#24292f" bgcolor="#eef3f8">64.0 MiB</td><td align="right" nowrap style="background:#fdf1dc;color:#24292f" bgcolor="#fdf1dc">64.0 MiB</td></tr>
+</tbody>
+</table>
 
 ### To load one, in Dolt
 
-For Dolt, the engine with the longest record here, there are three separate answers depending on what you are doing, measured on [not measured], the database that needs the most:
+For Dolt, the engine with the longest record here, there are three separate answers depending on what you are doing, measured on `employees`, the database that needs the most:
 
-| what you are doing, in Dolt | what it costs on [not measured] |
+| what you are doing, in Dolt | what it costs on `employees` |
 |---|---|
-| **opening it and running a query** | [not measured] GiB |
-| **loading it**, one commit per row | [not measured] GiB of anonymous memory |
+| **opening it and running a query** | 12.0 GiB |
+| **loading it**, one commit per row | 14.3 GiB of anonymous memory |
 | **packing it** with `dolt gc` afterwards | more than either — it was the high-water mark on every large database |
 
-Those are independent. A database you can build in [not measured] GiB may not open in that much, and the packing that finishes the load wants more again. Sizing a machine from the load figures alone gets you one that loads a database and then cannot store it.
+Those are independent. A database you can build in 14.3 GiB may not open in that much, and the packing that finishes the load wants more again. Sizing a machine from the load figures alone gets you one that loads a database and then cannot store it.
 
 ### What memory tracks: commits, not rows and not bytes
 
 Dolt's own memory study, the store with three commits against the store with one commit per row of the same database:
 
-* Every one of the 21 databases opens in [not measured] MiB when it holds three commits, including the largest at [not measured] rows. Row count is not the variable.
-* Size on disk is not it either: [not measured].
-* Above that floor, [not measured] databases sit in a narrow band of **[not measured] to [not measured] commits per MiB**, holding from [not measured] to [not measured] commits. Within that range you can budget from the commit count alone.
-* **The band does not hold at the top.** [not measured], at [not measured] commits, manages only [not measured] commits per MiB — about [not measured] times worse than the rule — and needs [not measured] GiB to open and count one table. So the rule is useful up to roughly a million commits and optimistic beyond it.
+* Every one of the 21 databases opens in 192 MiB when it holds three commits, including the largest at 3,919,015 rows. Row count is not the variable.
+* Size on disk is not it either: `adventureworks` holds 7.4 GiB and `lahman` holds 6.5 GiB, and both open in the same 384 MiB.
+* Above that floor, 7 databases sit in a narrow band of **1,355 to 2,280 commits per MiB**, holding from 174,719 to 1,167,115 commits. Within that range you can budget from the commit count alone.
+* **The band does not hold at the top.** `employees`, at 3,919,018 commits, manages only 319 commits per MiB — about 6 times worse than the rule — and needs 12.0 GiB to open and count one table. So the rule is useful up to roughly a million commits and optimistic beyond it.
 
-*No `build/memory.json` yet, so this section has nothing to show. It is written by the run, not by hand.*
+| database | rows | Dolt store with 3 commits:<br>memory to open it | Dolt store with one commit per row:<br>memory to open it | commits in that store | that store on disk |
+|---|---:|---:|---:|---:|---:|
+| `employees` | 3,919,015 | 64.0 MiB | 12.0 GiB | 3,919,018 | 62.0 GiB |
+| `wikipedia_simple` | 1,167,112 | 64.0 MiB | 512.0 MiB | 1,167,115 | 12.3 GiB |
+| `oracle_sh` | 1,063,396 | 192.0 MiB | 768.0 MiB | 1,063,399 | 15.4 GiB |
+| `adventureworks` | 759,240 | 64.0 MiB | 384.0 MiB | 759,243 | 7.4 GiB |
+| `contoso` | 753,467 | 64.0 MiB | 384.0 MiB | 753,470 | 6.6 GiB |
+| `lahman` | 706,466 | 64.0 MiB | 384.0 MiB | 706,469 | 6.5 GiB |
+| `chicago_crimes` | 260,072 | 64.0 MiB | 192.0 MiB | 260,075 | 2.3 GiB |
+| `dvdstore` | 174,716 | 64.0 MiB | 128.0 MiB | 174,719 | 1.7 GiB |
+| `stackexchange_beer` | 62,523 | 64.0 MiB | 64.0 MiB | 62,526 | 431.2 MiB |
+| `enron` | 48,778 | 64.0 MiB | 64.0 MiB | 48,781 | 370.0 MiB |
+| `nyc_taxi` | 48,591 | 64.0 MiB | 64.0 MiB | 48,594 | 321.1 MiB |
+| `sakila` | 47,268 | 64.0 MiB | 64.0 MiB | 47,271 | 314.5 MiB |
+| `chinook` | 15,607 | 64.0 MiB | 64.0 MiB | 15,610 | 83.5 MiB |
+| `oracle_oe` | 11,518 | 64.0 MiB | 64.0 MiB | 11,521 | 70.1 MiB |
+| `oracle_co` | 8,783 | 64.0 MiB | 64.0 MiB | 8,786 | 36.9 MiB |
+| `adventureworks_lt` | 4,277 | 64.0 MiB | 64.0 MiB | 4,280 | 19.3 MiB |
+| `northwind` | 3,308 | 64.0 MiB | 64.0 MiB | 3,311 | 13.5 MiB |
+| `smallsets` | 2,147 | 64.0 MiB | 64.0 MiB | 2,150 | 8.5 MiB |
+| `jaffle_shop` | 312 | 64.0 MiB | 64.0 MiB | 315 | 708.0 KiB |
+| `pubs` | 255 | 64.0 MiB | 64.0 MiB | 258 | 647.3 KiB |
+| `oracle_hr` | 216 | 64.0 MiB | 64.0 MiB | 219 | 466.7 KiB |
 
 The peaks of the loads themselves, per unit, are in [REPORT.md](REPORT.md#memory).
 
@@ -293,7 +343,7 @@ Everything here that weakens the result, found by auditing the method against th
 
 **The expensive loads are single samples.** Repeats stop once a unit has spent its budget, so the slow loads on the large databases are one run each. A figure or table shows a spread only where there is one to show.
 
-**The machine is not dedicated.** Besides the source MySQL it reads the dumps from, the run shares the host with other work: 4 other containers were running when the machine was recorded, with 14.6 GiB of 30.2 GiB memory available. The timings were taken on a shared host, so read small differences in time as no difference. It is realistic, but it is not a benchmark rig.
+**The machine is not dedicated.** Besides the source MySQL it reads the dumps from, the run shares the host with other work: 4 other containers were running when the machine was recorded, with 14.8 GiB of 30.2 GiB memory available. The timings were taken on a shared host, so read small differences in time as no difference. It is realistic, but it is not a benchmark rig.
 
 **Dolt is not given quite the same schema.** The transform removes what Dolt cannot take: cross-database foreign keys and views, and stored routines, which it does not implement. All of it makes Dolt's job slightly smaller; none of it touches a row. The cross-database views are worth singling out because the two engines *disagreed* rather than both failing — MySQL refused them and Dolt stored them, and dropping them is what keeps "the same file" true.
 
@@ -313,29 +363,6 @@ The following are not measured yet, and appear in this document as `[not measure
 
 * `corpus.rows` — from results.json:*.rows_mysql (absent)
 * `corpus.tables` — from results.json:*.tables (absent)
-* `memory.breaks_commits` — from memory.json (absent)
-* `memory.breaks_db` — from memory.json (absent)
-* `memory.breaks_factor` — from memory.json (absent)
-* `memory.breaks_ratio` — from memory.json (absent)
-* `memory.commits_per_mb` — from memory.json (absent)
-* `memory.commits_per_mb_high` — from memory.json (absent)
-* `memory.commits_per_mb_low` — from memory.json (absent)
-* `memory.disk_pair` — from memory.json (absent)
-* `memory.floor_mb` — from memory.json (absent)
-* `memory.ladder_top_gb` — from memory.json (absent)
-* `memory.largest_commits` — from memory.json (absent)
-* `memory.largest_db` — from memory.json (absent)
-* `memory.linear_databases` — from memory.json (absent)
-* `memory.linear_from` — from memory.json (absent)
-* `memory.linear_to` — from memory.json (absent)
-* `memory.max_open_commits` — from memory.json (absent)
-* `memory.max_open_db` — from memory.json (absent)
-* `memory.max_open_disk` — from memory.json (absent)
-* `memory.max_open_gb` — from memory.json (absent)
-* `memory.max_open_rows` — from memory.json (absent)
-* `memory.oneshot_max_mb` — from memory.json (absent)
-* `memory.oneshot_max_rows` — from memory.json (absent)
-* `memory.peak_load_gb` — from memory.json (absent)
 * `method.repeat_bytes_median` — from method.json:repeatability_from_run.bytes.median_spread_percent (absent)
 * `method.repeat_bytes_units` — from method.json:repeatability_from_run.bytes.units_repeated (absent)
 * `method.repeat_bytes_worst` — from method.json:repeatability_from_run.bytes.worst_spread_percent (absent)
@@ -352,7 +379,7 @@ The following are not measured yet, and appear in this document as `[not measure
 | Disk | 3.6 TiB ext4 |
 | Kernel | 7.0.0-34-generic |
 | Containers | Podman 5.7.0, rootless, through Docker's client 29.8.2; storage driver `overlay` |
-| Shared with | 4 other containers running at capture, belonging to other work on the host; 14.6 GiB memory available |
+| Shared with | 4 other containers running at capture, belonging to other work on the host; 14.8 GiB memory available |
 | MySQL | `mysql@sha256:e2bde46db6563855d7177adb5f0b57b9dc663f5a20927a90f4259d3312068497` — /usr/sbin/mysqld  Ver 9.7.2 for Linux on x86_64 (MySQL Community Server - GPL), named by image digest |
 | Dolt | `dolthub/dolt-sql-server` — dolt version 2.4.0, named by image digest |
 | PostgreSQL | `postgres` — postgres (PostgreSQL) 18.6 (Debian 18.6-1.pgdg12+2), named by image digest |

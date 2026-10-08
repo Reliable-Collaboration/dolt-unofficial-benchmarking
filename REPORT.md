@@ -23,7 +23,7 @@ Every table and figure behind [README.md](README.md), for all three pairs -- MyS
 | Disk | 3.6 TiB ext4 |
 | Kernel | 7.0.0-34-generic |
 | Containers | Podman 5.7.0, rootless, through Docker's client 29.8.2; storage driver `overlay` |
-| Shared with | 4 other containers running at capture, belonging to other work on the host; 14.6 GiB memory available |
+| Shared with | 4 other containers running at capture, belonging to other work on the host; 14.8 GiB memory available |
 | MySQL | `mysql@sha256:e2bde46db6563855d7177adb5f0b57b9dc663f5a20927a90f4259d3312068497` — /usr/sbin/mysqld  Ver 9.7.2 for Linux on x86_64 (MySQL Community Server - GPL), named by image digest |
 | Dolt | `dolthub/dolt-sql-server` — dolt version 2.4.0, named by image digest |
 | PostgreSQL | `postgres` — postgres (PostgreSQL) 18.6 (Debian 18.6-1.pgdg12+2), named by image digest |
@@ -450,9 +450,44 @@ Peak memory the kernel cannot reclaim -- anonymous plus shared, since swap is of
 
 What each Dolt engine needs to open a stored shape and count its largest table, from the three memory studies (`make memory-pairs`, `scripts/memory_profile.py`):
 
-*No memory study of the pairs yet (`make memory-pairs`).*
+| engine | stored shape | opens in | smallest | could not open |
+|---|---|---:|---:|---|
+| DoltgreSQL | one commit per database | 192.0 MiB (`oracle_sh`) | 64.0 MiB | — |
+| DoltgreSQL | one INSERT per row, one commit | 192.0 MiB (`oracle_sh`) | 64.0 MiB | — |
+| DoltgreSQL | the same, indexes inline | 192.0 MiB (`chicago_crimes`) | 64.0 MiB | — |
+| DoltgreSQL | one commit per row | 2.0 GiB (`employees`) | 64.0 MiB | — |
+| DoltgreSQL | the same, indexes inline | 2.0 GiB (`employees`) | 64.0 MiB | — |
+| DoltLite | one commit per database | 64.0 MiB (`adventureworks`) | 64.0 MiB | — |
+| DoltLite | one INSERT per row, one commit | 64.0 MiB (`adventureworks`) | 64.0 MiB | — |
+| DoltLite | the same, indexes inline | 64.0 MiB (`adventureworks`) | 64.0 MiB | — |
+| DoltLite | one commit per row | 64.0 MiB (`adventureworks`) | 64.0 MiB | — |
+| DoltLite | the same, indexes inline | 64.0 MiB (`adventureworks`) | 64.0 MiB | — |
 
-*No `build/memory.json` yet, so this section has nothing to show. It is written by the run, not by hand.*
+*Ceilings walked up to 16.0 GiB; a query that did not answer at the top is "could not open" with what the probe saw.*
+
+| database | rows | Dolt store with 3 commits:<br>memory to open it | Dolt store with one commit per row:<br>memory to open it | commits in that store | that store on disk |
+|---|---:|---:|---:|---:|---:|
+| `employees` | 3,919,015 | 64.0 MiB | 12.0 GiB | 3,919,018 | 62.0 GiB |
+| `wikipedia_simple` | 1,167,112 | 64.0 MiB | 512.0 MiB | 1,167,115 | 12.3 GiB |
+| `oracle_sh` | 1,063,396 | 192.0 MiB | 768.0 MiB | 1,063,399 | 15.4 GiB |
+| `adventureworks` | 759,240 | 64.0 MiB | 384.0 MiB | 759,243 | 7.4 GiB |
+| `contoso` | 753,467 | 64.0 MiB | 384.0 MiB | 753,470 | 6.6 GiB |
+| `lahman` | 706,466 | 64.0 MiB | 384.0 MiB | 706,469 | 6.5 GiB |
+| `chicago_crimes` | 260,072 | 64.0 MiB | 192.0 MiB | 260,075 | 2.3 GiB |
+| `dvdstore` | 174,716 | 64.0 MiB | 128.0 MiB | 174,719 | 1.7 GiB |
+| `stackexchange_beer` | 62,523 | 64.0 MiB | 64.0 MiB | 62,526 | 431.2 MiB |
+| `enron` | 48,778 | 64.0 MiB | 64.0 MiB | 48,781 | 370.0 MiB |
+| `nyc_taxi` | 48,591 | 64.0 MiB | 64.0 MiB | 48,594 | 321.1 MiB |
+| `sakila` | 47,268 | 64.0 MiB | 64.0 MiB | 47,271 | 314.5 MiB |
+| `chinook` | 15,607 | 64.0 MiB | 64.0 MiB | 15,610 | 83.5 MiB |
+| `oracle_oe` | 11,518 | 64.0 MiB | 64.0 MiB | 11,521 | 70.1 MiB |
+| `oracle_co` | 8,783 | 64.0 MiB | 64.0 MiB | 8,786 | 36.9 MiB |
+| `adventureworks_lt` | 4,277 | 64.0 MiB | 64.0 MiB | 4,280 | 19.3 MiB |
+| `northwind` | 3,308 | 64.0 MiB | 64.0 MiB | 3,311 | 13.5 MiB |
+| `smallsets` | 2,147 | 64.0 MiB | 64.0 MiB | 2,150 | 8.5 MiB |
+| `jaffle_shop` | 312 | 64.0 MiB | 64.0 MiB | 315 | 708.0 KiB |
+| `pubs` | 255 | 64.0 MiB | 64.0 MiB | 258 | 647.3 KiB |
+| `oracle_hr` | 216 | 64.0 MiB | 64.0 MiB | 219 | 466.7 KiB |
 
 ## The tests
 

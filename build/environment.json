@@ -2,7 +2,7 @@
   "docker": {
     "client": "29.8.2",
     "engine": "Podman",
-    "memory_available_at_capture": "14.6 GiB",
+    "memory_available_at_capture": "14.8 GiB",
     "other_containers_at_capture": 4,
     "rootless": true,
     "storage_driver": "overlay",

@@ -1,0 +1,3594 @@
+{
+ "_versions": {
+  "doltgres": "1.4.0",
+  "doltlite": "0.50.14"
+ },
+ "doltgres": {
+  "oneshot": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T01:43:39Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T01:43:55Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.2
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T01:44:11Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 16.8
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T01:44:26Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T01:44:43Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 17.0
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T01:44:59Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T01:45:14Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.9
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T01:45:30Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T01:45:43Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 13.7
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T01:46:00Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 16.8
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T01:46:15Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T01:46:30Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T01:46:45Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T01:47:00Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T01:47:14Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 13.7
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T01:47:33Z",
+    "megabytes": 192,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "192": "ok",
+     "256": "ok",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 18.7
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T01:47:48Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T01:48:03Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T01:48:16Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 13.7
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T01:48:31Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T01:48:46Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.8
+   }
+  },
+  "rowcommit": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T02:03:21Z",
+    "megabytes": 384,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "256": "oom",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 554.0
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T02:03:36Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T02:08:47Z",
+    "megabytes": 192,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "192": "ok",
+     "256": "ok",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 310.7
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T02:09:02Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T02:12:30Z",
+    "megabytes": 384,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "256": "oom",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 208.0
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T02:18:58Z",
+    "megabytes": 128,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "96": "oom"
+    },
+    "seconds_to_profile": 387.8
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T03:02:42Z",
+    "megabytes": 2048,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "1024": "oom",
+     "1536": "oom",
+     "16384": "ok",
+     "2048": "ok",
+     "3072": "ok",
+     "384": "oom"
+    },
+    "seconds_to_profile": 2624.6
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T03:03:06Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 24.2
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T03:03:22Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.2
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T03:09:00Z",
+    "megabytes": 384,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "256": "oom",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 338.4
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T03:09:15Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T03:09:37Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 22.0
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T03:09:52Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T03:10:07Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T03:10:22Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T03:14:42Z",
+    "megabytes": 768,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "1024": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "oom",
+     "512": "oom",
+     "768": "ok"
+    },
+    "seconds_to_profile": 259.7
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T03:14:57Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T03:15:20Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 23.2
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T03:15:35Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T03:16:00Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 25.2
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T03:30:22Z",
+    "megabytes": 768,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "1024": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "oom",
+     "512": "oom",
+     "768": "ok"
+    },
+    "seconds_to_profile": 861.9
+   }
+  },
+  "rowcommit_inline": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T03:46:30Z",
+    "megabytes": 512,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "1024": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "oom",
+     "512": "ok",
+     "768": "ok"
+    },
+    "seconds_to_profile": 648.4
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T03:46:45Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T03:54:58Z",
+    "megabytes": 384,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "256": "oom",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 493.7
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T03:55:15Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 17.0
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T03:57:28Z",
+    "megabytes": 768,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "1024": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "oom",
+     "512": "oom",
+     "768": "ok"
+    },
+    "seconds_to_profile": 132.7
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T03:58:29Z",
+    "megabytes": 192,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "192": "ok",
+     "256": "ok",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 61.1
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T04:31:33Z",
+    "megabytes": 2048,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "1024": "oom",
+     "1536": "oom",
+     "16384": "ok",
+     "2048": "ok",
+     "3072": "ok",
+     "384": "oom"
+    },
+    "seconds_to_profile": 1983.6
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T04:34:06Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 153.5
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T04:34:21Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T04:38:45Z",
+    "megabytes": 512,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "1024": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "oom",
+     "512": "ok",
+     "768": "ok"
+    },
+    "seconds_to_profile": 263.4
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T04:39:00Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T04:41:27Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 147.3
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T04:41:42Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T04:41:57Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.8
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T04:42:11Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T04:49:27Z",
+    "megabytes": 1536,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "1024": "oom",
+     "1536": "ok",
+     "16384": "ok",
+     "2048": "ok",
+     "3072": "ok",
+     "384": "oom"
+    },
+    "seconds_to_profile": 435.7
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T04:49:41Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 13.6
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T05:03:49Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 848.0
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T05:04:04Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T05:16:03Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 719.3
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T05:21:14Z",
+    "megabytes": 1024,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "1024": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "oom",
+     "768": "oom"
+    },
+    "seconds_to_profile": 311.5
+   }
+  },
+  "rowinsert": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T01:49:01Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T01:49:16Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T01:49:31Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.4
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T01:49:47Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T01:50:03Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 16.9
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T01:50:19Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.2
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T01:50:34Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.7
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T01:50:50Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T01:51:04Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T01:51:21Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 16.8
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T01:51:36Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T01:51:50Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 13.7
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T01:52:05Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T01:52:20Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T01:52:35Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T01:52:54Z",
+    "megabytes": 192,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "192": "ok",
+     "256": "ok",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 18.9
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T01:53:09Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T01:53:22Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 13.8
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T01:53:37Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T01:53:52Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T01:54:07Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   }
+  },
+  "rowinsert_inline": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T03:30:37Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.8
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T03:30:52Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T03:31:06Z",
+    "megabytes": 192,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "192": "ok",
+     "256": "ok",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 13.6
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T03:31:19Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 13.7
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T03:31:36Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 16.7
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T03:31:51Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T03:32:07Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 16.0
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T03:32:22Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T03:32:37Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T03:32:53Z",
+    "megabytes": 96,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "oom",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.6
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T03:33:08Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T03:33:23Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T03:33:37Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.8
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T03:33:53Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T03:34:08Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T03:34:27Z",
+    "megabytes": 192,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "128": "oom",
+     "16384": "ok",
+     "192": "ok",
+     "256": "ok",
+     "3072": "ok",
+     "384": "ok"
+    },
+    "seconds_to_profile": 19.5
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T03:34:41Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.0
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T03:34:56Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.1
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T03:35:11Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T03:35:26Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 15.0
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T03:35:41Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 14.9
+   }
+  }
+ },
+ "doltlite": {
+  "oneshot": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T05:21:16Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.8
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T05:21:18Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T05:21:19Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T05:21:21Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T05:21:22Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T05:21:24Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T05:21:25Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T05:21:27Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T05:21:28Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T05:21:30Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T05:21:31Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T05:21:33Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T05:21:35Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T05:21:36Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.6
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T05:21:38Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T05:21:39Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T05:21:41Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T05:21:42Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T05:21:44Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.8
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T05:21:46Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T05:21:47Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   }
+  },
+  "rowcommit": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T05:22:22Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 2.0
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T05:22:23Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T05:22:25Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.8
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T05:22:26Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T05:22:28Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 2.1
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T05:22:30Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T05:22:34Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 4.1
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T05:22:35Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T05:22:37Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T05:22:39Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.9
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T05:22:41Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T05:22:42Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T05:22:44Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T05:22:45Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T05:22:47Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T05:22:49Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 2.4
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T05:22:51Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T05:22:52Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T05:22:54Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T05:22:55Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T05:22:58Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 2.4
+   }
+  },
+  "rowcommit_inline": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T05:23:33Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 2.7
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T05:23:35Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T05:23:37Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 2.4
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T05:23:38Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T05:23:41Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 2.5
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T05:23:43Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.6
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T05:23:47Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 4.3
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T05:23:49Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.8
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T05:23:50Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T05:23:52Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 2.3
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T05:23:54Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T05:23:55Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T05:23:57Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T05:23:59Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T05:24:00Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.6
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T05:24:04Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 4.1
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T05:24:06Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T05:24:07Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T05:24:09Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T05:24:11Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T05:24:14Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 3.1
+   }
+  },
+  "rowinsert": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T05:21:49Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T05:21:50Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T05:21:52Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T05:21:53Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T05:21:55Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T05:21:56Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T05:21:58Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T05:21:59Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T05:22:01Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T05:22:02Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T05:22:04Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.6
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T05:22:06Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T05:22:07Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T05:22:09Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.8
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T05:22:10Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T05:22:12Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T05:22:13Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T05:22:15Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T05:22:17Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T05:22:18Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T05:22:20Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   }
+  },
+  "rowinsert_inline": {
+   "adventureworks": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 121317,
+    "measured": "2026-10-08T05:22:59Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales_salesorderdetail",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "adventureworks_lt": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 847,
+    "measured": "2026-10-08T05:23:01Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "customer",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.8
+   },
+   "chicago_crimes": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 259638,
+    "measured": "2026-10-08T05:23:02Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "crimes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "chinook": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8715,
+    "measured": "2026-10-08T05:23:04Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "playlisttrack",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "contoso": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 223974,
+    "measured": "2026-10-08T05:23:06Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "orderrows",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "dvdstore": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 60350,
+    "measured": "2026-10-08T05:23:07Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "cust_hist",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "employees": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2844047,
+    "measured": "2026-10-08T05:23:09Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "salaries",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "enron": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 38832,
+    "measured": "2026-10-08T05:23:10Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "recipient",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "jaffle_shop": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 113,
+    "measured": "2026-10-08T05:23:12Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "raw_payments",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   },
+   "lahman": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 174332,
+    "measured": "2026-10-08T05:23:13Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "fielding",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "northwind": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 2155,
+    "measured": "2026-10-08T05:23:15Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_details",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "nyc_taxi": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 48326,
+    "measured": "2026-10-08T05:23:16Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "green_trips",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "oracle_co": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 3914,
+    "measured": "2026-10-08T05:23:18Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "order_items",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_hr": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 107,
+    "measured": "2026-10-08T05:23:19Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "employees",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "oracle_oe": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 8640,
+    "measured": "2026-10-08T05:23:21Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "product_descriptions",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "oracle_sh": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 918843,
+    "measured": "2026-10-08T05:23:23Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "sales",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "pubs": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 86,
+    "measured": "2026-10-08T05:23:24Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "roysched",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.7
+   },
+   "sakila": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 16044,
+    "measured": "2026-10-08T05:23:26Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "payment",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "smallsets": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 1309,
+    "measured": "2026-10-08T05:23:27Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "titanic",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.5
+   },
+   "stackexchange_beer": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 20765,
+    "measured": "2026-10-08T05:23:29Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "votes",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.6
+   },
+   "wikipedia_simple": {
+    "ladder_top_mb": 16384,
+    "largest_table_rows": 769735,
+    "measured": "2026-10-08T05:23:30Z",
+    "megabytes": 64,
+    "outcome": "ok",
+    "query_table": "pagelinks",
+    "rungs": {
+     "128": "ok",
+     "16384": "ok",
+     "3072": "ok",
+     "384": "ok",
+     "64": "ok",
+     "96": "ok"
+    },
+    "seconds_to_profile": 1.4
+   }
+  }
+ }
+}

@@ -1,0 +1,2109 @@
+{
+ "_versions": {
+  "dolt": "2.4.0"
+ },
+ "oneshot": {
+  "adventureworks": {
+   "commits": 3,
+   "disk_bytes": 51838773,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 121317,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales_salesorderdetail",
+   "rows": 759240,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "adventureworks_lt": {
+   "commits": 3,
+   "disk_bytes": 1078669,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 847,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "customer",
+   "rows": 4277,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "chicago_crimes": {
+   "commits": 3,
+   "disk_bytes": 30187483,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 259638,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "crimes",
+   "rows": 260072,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "chinook": {
+   "commits": 3,
+   "disk_bytes": 652277,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8715,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "playlisttrack",
+   "rows": 15607,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "contoso": {
+   "commits": 3,
+   "disk_bytes": 41458243,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 223974,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "orderrows",
+   "rows": 753467,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.1
+  },
+  "dvdstore": {
+   "commits": 3,
+   "disk_bytes": 12514532,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 60350,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "cust_hist",
+   "rows": 174716,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "employees": {
+   "commits": 3,
+   "disk_bytes": 44619160,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2844047,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "salaries",
+   "rows": 3919015,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "enron": {
+   "commits": 3,
+   "disk_bytes": 35753469,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 38832,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "recipient",
+   "rows": 48778,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "jaffle_shop": {
+   "commits": 3,
+   "disk_bytes": 61125,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 113,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "raw_payments",
+   "rows": 312,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "lahman": {
+   "commits": 3,
+   "disk_bytes": 27609974,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 174332,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "fielding",
+   "rows": 706466,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "northwind": {
+   "commits": 3,
+   "disk_bytes": 553451,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2155,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_details",
+   "rows": 3308,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "nyc_taxi": {
+   "commits": 3,
+   "disk_bytes": 3167374,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 48326,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "green_trips",
+   "rows": 48591,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "oracle_co": {
+   "commits": 3,
+   "disk_bytes": 489770,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 3914,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_items",
+   "rows": 8783,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "oracle_hr": {
+   "commits": 3,
+   "disk_bytes": 86835,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 107,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "employees",
+   "rows": 216,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "oracle_oe": {
+   "commits": 3,
+   "disk_bytes": 4563689,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8640,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "product_descriptions",
+   "rows": 11518,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.2
+  },
+  "oracle_sh": {
+   "commits": 3,
+   "disk_bytes": 150264134,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 918843,
+   "megabytes": 192,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales",
+   "rows": 1063396,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "192": "ok",
+    "256": "ok",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 3.8
+  },
+  "pubs": {
+   "commits": 3,
+   "disk_bytes": 101397,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 86,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "roysched",
+   "rows": 255,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "sakila": {
+   "commits": 3,
+   "disk_bytes": 2174955,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 16044,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "payment",
+   "rows": 47268,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "smallsets": {
+   "commits": 3,
+   "disk_bytes": 190734,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 1309,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "titanic",
+   "rows": 2147,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "stackexchange_beer": {
+   "commits": 3,
+   "disk_bytes": 14713281,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 20765,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "votes",
+   "rows": 62523,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "wikipedia_simple": {
+   "commits": 3,
+   "disk_bytes": 128951461,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 769735,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "pagelinks",
+   "rows": 1167112,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  }
+ },
+ "rowcommit": {
+  "adventureworks": {
+   "commits": 759243,
+   "disk_bytes": 7967054177,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 121317,
+   "megabytes": 384,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales_salesorderdetail",
+   "rows": 759240,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "256": "oom",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 2.7
+  },
+  "adventureworks_lt": {
+   "commits": 4280,
+   "disk_bytes": 20284860,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 847,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "customer",
+   "rows": 4277,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "chicago_crimes": {
+   "commits": 260075,
+   "disk_bytes": 2474358844,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 259638,
+   "megabytes": 192,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "crimes",
+   "rows": 260072,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "192": "ok",
+    "256": "ok",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 2.4
+  },
+  "chinook": {
+   "commits": 15610,
+   "disk_bytes": 87529189,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8715,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "playlisttrack",
+   "rows": 15607,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "contoso": {
+   "commits": 753470,
+   "disk_bytes": 7132067280,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 223974,
+   "megabytes": 384,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "orderrows",
+   "rows": 753467,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "256": "oom",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 2.5
+  },
+  "dvdstore": {
+   "commits": 174719,
+   "disk_bytes": 1797434727,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 60350,
+   "megabytes": 128,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "cust_hist",
+   "rows": 174716,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "96": "oom"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "employees": {
+   "commits": 3919018,
+   "disk_bytes": 66603974322,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2844047,
+   "megabytes": 12288,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "salaries",
+   "rows": 3919015,
+   "rungs": {
+    "11264": "oom",
+    "12288": "ok",
+    "13312": "ok",
+    "14336": "ok",
+    "16384": "ok",
+    "3072": "oom"
+   },
+   "seconds_to_profile": 123.7
+  },
+  "enron": {
+   "commits": 48781,
+   "disk_bytes": 387968915,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 38832,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "recipient",
+   "rows": 48778,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.2
+  },
+  "jaffle_shop": {
+   "commits": 315,
+   "disk_bytes": 724947,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 113,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "raw_payments",
+   "rows": 312,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "lahman": {
+   "commits": 706469,
+   "disk_bytes": 6980891297,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 174332,
+   "megabytes": 384,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "fielding",
+   "rows": 706466,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "256": "oom",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 2.7
+  },
+  "northwind": {
+   "commits": 3311,
+   "disk_bytes": 14159509,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2155,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_details",
+   "rows": 3308,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "nyc_taxi": {
+   "commits": 48594,
+   "disk_bytes": 336706262,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 48326,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "green_trips",
+   "rows": 48591,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "oracle_co": {
+   "commits": 8786,
+   "disk_bytes": 38642422,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 3914,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_items",
+   "rows": 8783,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "oracle_hr": {
+   "commits": 219,
+   "disk_bytes": 477921,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 107,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "employees",
+   "rows": 216,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "oracle_oe": {
+   "commits": 11521,
+   "disk_bytes": 73501084,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8640,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "product_descriptions",
+   "rows": 11518,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "oracle_sh": {
+   "commits": 1063399,
+   "disk_bytes": 16587655826,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 918843,
+   "megabytes": 768,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales",
+   "rows": 1063396,
+   "rungs": {
+    "1024": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "oom",
+    "512": "oom",
+    "768": "ok"
+   },
+   "seconds_to_profile": 6.9
+  },
+  "pubs": {
+   "commits": 258,
+   "disk_bytes": 662872,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 86,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "roysched",
+   "rows": 255,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "sakila": {
+   "commits": 47271,
+   "disk_bytes": 329776331,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 16044,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "payment",
+   "rows": 47268,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.1
+  },
+  "smallsets": {
+   "commits": 2150,
+   "disk_bytes": 8872106,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 1309,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "titanic",
+   "rows": 2147,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "stackexchange_beer": {
+   "commits": 62526,
+   "disk_bytes": 452180005,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 20765,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "votes",
+   "rows": 62523,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "wikipedia_simple": {
+   "commits": 1167115,
+   "disk_bytes": 13230443209,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 769735,
+   "megabytes": 512,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "pagelinks",
+   "rows": 1167112,
+   "rungs": {
+    "1024": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "oom",
+    "512": "ok",
+    "768": "ok"
+   },
+   "seconds_to_profile": 4.3
+  }
+ },
+ "rowcommit_inline": {
+  "adventureworks": {
+   "commits": 759243,
+   "disk_bytes": 16077908665,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 121317,
+   "megabytes": 768,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales_salesorderdetail",
+   "rows": 759240,
+   "rungs": {
+    "1024": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "oom",
+    "512": "oom",
+    "768": "ok"
+   },
+   "seconds_to_profile": 4.7
+  },
+  "adventureworks_lt": {
+   "commits": 4280,
+   "disk_bytes": 38991849,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 847,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "customer",
+   "rows": 4277,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "chicago_crimes": {
+   "commits": 260075,
+   "disk_bytes": 11189196498,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 259638,
+   "megabytes": 384,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "crimes",
+   "rows": 260072,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "256": "oom",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 2.7
+  },
+  "chinook": {
+   "commits": 15610,
+   "disk_bytes": 119632889,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8715,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "playlisttrack",
+   "rows": 15607,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "contoso": {
+   "commits": 753470,
+   "disk_bytes": 11978438618,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 223974,
+   "megabytes": 512,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "orderrows",
+   "rows": 753467,
+   "rungs": {
+    "1024": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "oom",
+    "512": "ok",
+    "768": "ok"
+   },
+   "seconds_to_profile": 4.0
+  },
+  "dvdstore": {
+   "commits": 174719,
+   "disk_bytes": 3516946477,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 60350,
+   "megabytes": 192,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "cust_hist",
+   "rows": 174716,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "192": "ok",
+    "256": "ok",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 2.3
+  },
+  "employees": {
+   "commits": 3919018,
+   "disk_bytes": 73886212502,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2844047,
+   "megabytes": 12288,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "salaries",
+   "rows": 3919015,
+   "rungs": {
+    "11264": "oom",
+    "12288": "ok",
+    "13312": "ok",
+    "14336": "ok",
+    "16384": "ok",
+    "3072": "oom"
+   },
+   "seconds_to_profile": 122.9
+  },
+  "enron": {
+   "commits": 48781,
+   "disk_bytes": 6284588688,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 38832,
+   "megabytes": 256,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "recipient",
+   "rows": 48778,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "192": "oom",
+    "256": "ok",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 2.5
+  },
+  "jaffle_shop": {
+   "commits": 315,
+   "disk_bytes": 831962,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 113,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "raw_payments",
+   "rows": 312,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "lahman": {
+   "commits": 706469,
+   "disk_bytes": 9441815138,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 174332,
+   "megabytes": 512,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "fielding",
+   "rows": 706466,
+   "rungs": {
+    "1024": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "oom",
+    "512": "ok",
+    "768": "ok"
+   },
+   "seconds_to_profile": 3.6
+  },
+  "northwind": {
+   "commits": 3311,
+   "disk_bytes": 27564053,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2155,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_details",
+   "rows": 3308,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "nyc_taxi": {
+   "commits": 48594,
+   "disk_bytes": 962922576,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 48326,
+   "megabytes": 96,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "green_trips",
+   "rows": 48591,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "oom",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "oracle_co": {
+   "commits": 8786,
+   "disk_bytes": 68220224,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 3914,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_items",
+   "rows": 8783,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "oracle_hr": {
+   "commits": 219,
+   "disk_bytes": 880581,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 107,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "employees",
+   "rows": 216,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "oracle_oe": {
+   "commits": 11521,
+   "disk_bytes": 895898585,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8640,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "product_descriptions",
+   "rows": 11518,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.1
+  },
+  "oracle_sh": {
+   "commits": 1063399,
+   "disk_bytes": 60098371520,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 918843,
+   "megabytes": 1536,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales",
+   "rows": 1063396,
+   "rungs": {
+    "1024": "oom",
+    "1536": "ok",
+    "16384": "ok",
+    "2048": "ok",
+    "3072": "ok",
+    "384": "oom"
+   },
+   "seconds_to_profile": 9.2
+  },
+  "pubs": {
+   "commits": 258,
+   "disk_bytes": 810400,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 86,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "roysched",
+   "rows": 255,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "sakila": {
+   "commits": 47271,
+   "disk_bytes": 717629915,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 16044,
+   "megabytes": 96,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "payment",
+   "rows": 47268,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "oom",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "smallsets": {
+   "commits": 2150,
+   "disk_bytes": 8721293,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 1309,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "titanic",
+   "rows": 2147,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "stackexchange_beer": {
+   "commits": 62526,
+   "disk_bytes": 2082771575,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 20765,
+   "megabytes": 128,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "votes",
+   "rows": 62523,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "96": "oom"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "wikipedia_simple": {
+   "commits": 1167115,
+   "disk_bytes": 30514355530,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 769735,
+   "megabytes": 1536,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "pagelinks",
+   "rows": 1167112,
+   "rungs": {
+    "1024": "oom",
+    "1536": "ok",
+    "16384": "ok",
+    "2048": "ok",
+    "3072": "ok",
+    "384": "oom"
+   },
+   "seconds_to_profile": 6.7
+  }
+ },
+ "rowinsert": {
+  "adventureworks": {
+   "commits": 3,
+   "disk_bytes": 51532764,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 121317,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales_salesorderdetail",
+   "rows": 759240,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "adventureworks_lt": {
+   "commits": 3,
+   "disk_bytes": 1078687,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 847,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "customer",
+   "rows": 4277,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "chicago_crimes": {
+   "commits": 3,
+   "disk_bytes": 30243637,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 259638,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "crimes",
+   "rows": 260072,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "chinook": {
+   "commits": 3,
+   "disk_bytes": 652278,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8715,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "playlisttrack",
+   "rows": 15607,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "contoso": {
+   "commits": 3,
+   "disk_bytes": 41151249,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 223974,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "orderrows",
+   "rows": 753467,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.1
+  },
+  "dvdstore": {
+   "commits": 3,
+   "disk_bytes": 13000105,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 60350,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "cust_hist",
+   "rows": 174716,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "employees": {
+   "commits": 3,
+   "disk_bytes": 45678509,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2844047,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "salaries",
+   "rows": 3919015,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "enron": {
+   "commits": 3,
+   "disk_bytes": 40471662,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 38832,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "recipient",
+   "rows": 48778,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "jaffle_shop": {
+   "commits": 3,
+   "disk_bytes": 61127,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 113,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "raw_payments",
+   "rows": 312,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "lahman": {
+   "commits": 3,
+   "disk_bytes": 27561912,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 174332,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "fielding",
+   "rows": 706466,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "northwind": {
+   "commits": 3,
+   "disk_bytes": 553453,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2155,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_details",
+   "rows": 3308,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "nyc_taxi": {
+   "commits": 3,
+   "disk_bytes": 3160009,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 48326,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "green_trips",
+   "rows": 48591,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "oracle_co": {
+   "commits": 3,
+   "disk_bytes": 489561,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 3914,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_items",
+   "rows": 8783,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "oracle_hr": {
+   "commits": 3,
+   "disk_bytes": 86130,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 107,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "employees",
+   "rows": 216,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "oracle_oe": {
+   "commits": 3,
+   "disk_bytes": 5321907,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8640,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "product_descriptions",
+   "rows": 11518,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "oracle_sh": {
+   "commits": 3,
+   "disk_bytes": 150358131,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 918843,
+   "megabytes": 192,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales",
+   "rows": 1063396,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "192": "ok",
+    "256": "ok",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 4.7
+  },
+  "pubs": {
+   "commits": 3,
+   "disk_bytes": 101406,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 86,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "roysched",
+   "rows": 255,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "sakila": {
+   "commits": 3,
+   "disk_bytes": 2288716,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 16044,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "payment",
+   "rows": 47268,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "smallsets": {
+   "commits": 3,
+   "disk_bytes": 190740,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 1309,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "titanic",
+   "rows": 2147,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "stackexchange_beer": {
+   "commits": 3,
+   "disk_bytes": 16887708,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 20765,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "votes",
+   "rows": 62523,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "wikipedia_simple": {
+   "commits": 3,
+   "disk_bytes": 130884612,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 769735,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "pagelinks",
+   "rows": 1167112,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  }
+ },
+ "rowinsert_inline": {
+  "adventureworks": {
+   "commits": 3,
+   "disk_bytes": 51577624,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 121317,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales_salesorderdetail",
+   "rows": 759240,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "adventureworks_lt": {
+   "commits": 3,
+   "disk_bytes": 1078667,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 847,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "customer",
+   "rows": 4277,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "chicago_crimes": {
+   "commits": 3,
+   "disk_bytes": 30274160,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 259638,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "crimes",
+   "rows": 260072,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "chinook": {
+   "commits": 3,
+   "disk_bytes": 652276,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8715,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "playlisttrack",
+   "rows": 15607,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 2.0
+  },
+  "contoso": {
+   "commits": 3,
+   "disk_bytes": 41241951,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 223974,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "orderrows",
+   "rows": 753467,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "dvdstore": {
+   "commits": 3,
+   "disk_bytes": 12542583,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 60350,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "cust_hist",
+   "rows": 174716,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "employees": {
+   "commits": 3,
+   "disk_bytes": 43054390,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2844047,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "salaries",
+   "rows": 3919015,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "enron": {
+   "commits": 3,
+   "disk_bytes": 35790801,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 38832,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "recipient",
+   "rows": 48778,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "jaffle_shop": {
+   "commits": 3,
+   "disk_bytes": 61123,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 113,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "raw_payments",
+   "rows": 312,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "lahman": {
+   "commits": 3,
+   "disk_bytes": 27598733,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 174332,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "fielding",
+   "rows": 706466,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "northwind": {
+   "commits": 3,
+   "disk_bytes": 553446,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 2155,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_details",
+   "rows": 3308,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.8
+  },
+  "nyc_taxi": {
+   "commits": 3,
+   "disk_bytes": 3195738,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 48326,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "green_trips",
+   "rows": 48591,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "oracle_co": {
+   "commits": 3,
+   "disk_bytes": 489771,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 3914,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "order_items",
+   "rows": 8783,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "oracle_hr": {
+   "commits": 3,
+   "disk_bytes": 86833,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 107,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "employees",
+   "rows": 216,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "oracle_oe": {
+   "commits": 3,
+   "disk_bytes": 4399181,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 8640,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "product_descriptions",
+   "rows": 11518,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "oracle_sh": {
+   "commits": 3,
+   "disk_bytes": 134866463,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 918843,
+   "megabytes": 192,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "sales",
+   "rows": 1063396,
+   "rungs": {
+    "128": "oom",
+    "16384": "ok",
+    "192": "ok",
+    "256": "ok",
+    "3072": "ok",
+    "384": "ok"
+   },
+   "seconds_to_profile": 4.2
+  },
+  "pubs": {
+   "commits": 3,
+   "disk_bytes": 101398,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 86,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "roysched",
+   "rows": 255,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "sakila": {
+   "commits": 3,
+   "disk_bytes": 2112126,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 16044,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "payment",
+   "rows": 47268,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.6
+  },
+  "smallsets": {
+   "commits": 3,
+   "disk_bytes": 190739,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 1309,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "titanic",
+   "rows": 2147,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.9
+  },
+  "stackexchange_beer": {
+   "commits": 3,
+   "disk_bytes": 14646581,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 20765,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "votes",
+   "rows": 62523,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  },
+  "wikipedia_simple": {
+   "commits": 3,
+   "disk_bytes": 129809668,
+   "ladder_top_mb": 16384,
+   "largest_table_rows": 769735,
+   "megabytes": 64,
+   "op": "count",
+   "outcome": "ok",
+   "query_table": "pagelinks",
+   "rows": 1167112,
+   "rungs": {
+    "128": "ok",
+    "16384": "ok",
+    "3072": "ok",
+    "384": "ok",
+    "64": "ok",
+    "96": "ok"
+   },
+   "seconds_to_profile": 1.7
+  }
+ }
+}

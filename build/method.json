@@ -1,0 +1,16 @@
+{
+  "dolt_container_overhead": {
+    "note": "zero per load: both engines now load by `docker exec` into a long-lived container. Dolt used to pay this twice per load and MySQL not at all",
+    "per_load": 0,
+    "samples": 5,
+    "seconds": 0.24
+  },
+  "empty_footprint": {
+    "databases_checked": 21,
+    "mysql_empty_datadir_bytes": 672555298,
+    "mysql_empty_datadir_samples": 21,
+    "mysql_empty_datadir_spread_bytes": 54,
+    "mysql_shared_growth_bytes": 0,
+    "note": "every MySQL figure in this report excludes the empty-server baseline: it is a per-server cost, not a per-database one, and it does not grow as data is loaded"
+  }
+}

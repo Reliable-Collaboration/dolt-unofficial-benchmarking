@@ -7,7 +7,7 @@ tags:
 - engine
 - doltgresql
 - version
-status: stable
+status: deprecated
 trust: verified
 generated:
   by: claude-code/claude-fable-5-1
@@ -29,6 +29,8 @@ sources:
 ---
 
 # Facts
+
+**Superseded on 2026-10-02** by [DoltgreSQL 1.4.0](/tools/doltgresql-1-4-0.md) under [one version per result set](/decisions/engine-versions-one-per-result-set.md): release 3 measures the newer version and this one's numbers are no longer in the repository. This record stays as the account of what was verified on it.
 
 * **Identity.** `dolthub/doltgresql@sha256:267aff12…`, the image tagged `1.3.2`, released 2026-09-12; `SELECT version()` still answers `PostgreSQL 15.5`. Every DoltgreSQL unit of the experiment, 105 of them, was measured on it between 2026-09-14 and 2026-09-16, 39 hours of loads, in a server started for each unit under a 16 GiB cap until 2026-09-15 00:54 UTC and 8 GiB then 12 GiB after it (the maintainer's other work; every unit records its cap as `memory_cap`).
 * **The dialect rules did not change.** [The seven rules](/decisions/pair-dialect-rules.md) written for 1.3.1 were applied as they were, and every database loaded with the same refusals recorded per unit: the `xpath` views of adventureworks (2) and adventureworks_lt (1), oracle_co's `product_reviews` view (`at or near "as"`), sakila's `actor_info` view (`GROUP BY`), wikipedia_simple's four `convert_from` views. Nothing that 1.3.1 refused loaded, and nothing new was refused.

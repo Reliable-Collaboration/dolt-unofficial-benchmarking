@@ -7,7 +7,7 @@ tags:
 - engine
 - doltlite
 - version
-status: stable
+status: deprecated
 trust: verified
 generated:
   by: claude-code/claude-fable-5-1
@@ -37,6 +37,8 @@ sources:
 ---
 
 # Facts
+
+**Superseded on 2026-10-01** by [DoltLite v0.50.14](/tools/doltlite-0-50-14.md) under [one version per result set](/decisions/engine-versions-one-per-result-set.md): release 3 measures the newer version and this one's numbers are no longer in the repository. This record stays as the account of what was verified on it.
 
 * **Identity and build.** `scripts/lite_image.py` downloaded `libdoltlite0_0.50.10_amd64.deb` (9,277,140 bytes) and `doltlite_0.50.10_amd64.deb` (19,272,068 bytes), verified them against the SHA-256 values in `versions.json`, and built `doltsamples-doltlite:0.50.10` (285 MB) over `debian:13-slim` by digest in 8.5 s on 2026-09-12. Inside it, `doltlite -version` answers `DoltLite v0.50.10 (SQLite 3.54.0, 64-bit)` and `sqlite3 -version` answers `3.46.1 2024-08-13 09:16:08 c9c2ab54ba1f…` (64-bit): the same SQLite core as v0.50.9 and the same baseline shell, so the SQLite units of the pair are not measured again.
 * **`VACUUM` collects the per-row-commit file v0.50.9 could not.** On a copy of chicago_crimes' per-row-commit store as v0.50.9 wrote it (3,626,991,241 bytes, 260,043 commits; v0.50.9 answered `out of memory` within seconds, [VACUUM memory](/questions/doltlite-vacuum-memory.md)), `doltlite /w/chicago_crimes.doltlite "VACUUM;"` in this image under a 16 GiB cgroup exited 0 after 8.1 s and left 1,931,050,868 bytes (1.93 GB, 53% of the size before); the container's memory peaked at about 1,825 MiB (`docker stats`, one-second samples, so a peak between samples may be higher); afterwards `SELECT count(*) FROM dolt_log` answers 260043 and `PRAGMA integrity_check` answers `ok` (2026-09-12, session script `v0.50.10-check/vacuum-old-file.sh`). The fix is pull request 2836, which bounds the mark queue and spills it to disk; its own caveat stands -- visited hashes and chunk indexes still scale with the chunk count -- so the peak on the largest files is a number the loads will produce, not one to assume.

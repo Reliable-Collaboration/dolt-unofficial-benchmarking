@@ -1,5 +1,21 @@
 # Log
 
+## 2026-10-09
+
+* **Update**: `make measure-all` had been left out of the README's run sequence, so the corpus's table and row counts and the MySQL/Dolt index parity rendered as `[not measured]`; it is in the sequence now and was run for every Dolt store but employees' two per-row-commit stores, which need about 12 GiB to open (rows match MySQL everywhere; 613 indexes on each side in the one-commit and row-insert stores, 604 in the per-row-commit ones measured).
+* **Verification**: [collecting during the load](/questions/dolt-gc-memory-large-journal.md) -- dolt-megasamples' build of employees' per-row-commit history, `dolt gc` every 10 chunks under a 10 GiB cap, replayed every chunk near 3 GiB but its final commit and gc were killed by the host's out-of-memory killer at 8.4 GiB; recorded in [Dolt 2.4.0](/tools/dolt-2-4-0.md).
+* **Update**: no unit of release 3 was repeated (the runner's `--repeat` defaults to 1 and the README's commands do not raise it), so the repeatability facts render as `[not measured]`.
+
+## 2026-10-08
+
+* **Verification**: release 3's run is complete -- 714 load units (MySQL/Dolt, PostgreSQL/DoltgreSQL and SQLite/DoltLite, 21 databases, both index policies), both memory studies, `make check` with 3,300 invariants and none failing -- on Dolt 2.4.0, DoltgreSQL 1.4.0, DoltLite 0.50.14, MySQL 9.7.2, PostgreSQL 18.6 and SQLite 3.53.4. Records: [Dolt 2.4.0](/tools/dolt-2-4-0.md), [DoltgreSQL 1.4.0](/tools/doltgresql-1-4-0.md), [DoltLite v0.50.14](/tools/doltlite-0-50-14.md); [DoltgreSQL 1.3.2](/tools/doltgresql-1-3-2.md) and [DoltLite v0.50.10](/tools/doltlite-0-50-10.md) deprecated.
+* **Update**: employees' Dolt per-row-commit units, recorded as settled at 62.0 and 68.8 GiB, were never collected: `dolt gc` was OOM-killed at 16 and at 18 GiB after the commit had landed, the runner did not read the exit status of `commit ; gc`, and the stores are whole chunk journals with an empty old generation. The runner now runs and judges the commit and the collection separately and samples the settle step's memory; `scripts/collect.py` reads an older unit's store to tell, and the two stores are reported as † footprints outside the totals ([Dolt 2.4.0](/tools/dolt-2-4-0.md)). The memory sampler is now stopped by its PID: its `pkill -f` pattern matched the shell issuing it.
+* **Creation**: [what `dolt gc` needs for a large chunk journal](/questions/dolt-gc-memory-large-journal.md), and whether collecting during the load bounds it.
+
+## 2026-10-03
+
+* **Update**: on the maintainer's word the worker cap rose from 16 GiB to 18 GiB from oracle_sh's inline per-row-commit load on; each unit records the cap it ran under (`memory_limit`).
+
 ## 2026-10-02
 
 * **Creation**: [the split from dolt-megasamples](/decisions/split-from-dolt-megasamples.md) -- on the maintainer's word this repository becomes dolt-unofficial-benchmarking: it keeps dolt-megasamples' history and every side-by-side test, imports the dialect rules, the exports and the DoltLite image from a dolt-megasamples checkout, and serves nothing. Records written before the split name the dialect modules at their old paths (`scripts/dolt_dialect.py` and the rest); they now live in dolt-megasamples as `doltsamples/dialects/`.
